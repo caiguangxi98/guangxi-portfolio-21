@@ -1,0 +1,101 @@
+@import 'config.scss';
+@import 'mixins.scss';
+@import 'reset.scss';
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  scrollbar-width: none;
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -webkit-user-select: none;
+  user-select: none;
+
+  touch-action: none;
+
+  width: 100%;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: none;
+
+  width: 100%;
+  height: 100%;
+  word-break: break-word;
+
+  color: $text;
+  background: $blk;
+}
+
+// font size
+h1 {
+  font-size: 160px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+h5 {
+  font-size: 12px;
+}
+
+// extends
+.clear {
+  clear: both;
+}
+
+.abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fsr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// page transition
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
