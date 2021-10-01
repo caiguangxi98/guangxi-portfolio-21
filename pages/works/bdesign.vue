@@ -1,7 +1,7 @@
 <template>
   <div class="Work">
     <div class="cover">
-      <img :src="img" alt="" />
+      <img :src="cover" alt="" />
     </div>
     <div class="content">
       <!-- eslint-disable vue/no-v-html -->
@@ -21,7 +21,14 @@
         </div>
       </div>
 
-      <div class="gallery"></div>
+      <div class="gallery">
+        <work-image
+          v-for="img in gallery01"
+          :key="img.id"
+          :img="img"
+          :observer="imgObserver"
+        ></work-image>
+      </div>
 
       <div class="info info-02">
         <p>{{ brief.info02 }}</p>
@@ -38,11 +45,12 @@
 <script>
 import NaviFooter from '~/components/navi-footer.vue';
 import workBrief from '~/components/work/work-brief.vue';
+import WorkImage from '~/components/work/work-image.vue';
 export default {
-  components: { workBrief, NaviFooter },
+  components: { workBrief, NaviFooter, WorkImage },
   data() {
     return {
-      img: '/image/bdesign/cover.png',
+      cover: '/image/bdesign/cover.png',
       brief: {
         title: 'B-Design',
         company: 'Alibaba Cloud',
@@ -60,7 +68,73 @@ export default {
           roles: 'Sketches & Concept <br />3D Design <br />Animation',
         },
       },
+      gallery01: [
+        {
+          id: '01',
+          lazy: '/image/bdesign/01-lazy.png',
+          origin: '/image/bdesign/01.png',
+        },
+        {
+          id: '02',
+          lazy: '/image/bdesign/02-lazy.png',
+          origin: '/image/bdesign/02.png',
+        },
+        {
+          id: '03',
+          lazy: '/image/bdesign/03-lazy.png',
+          origin: '/image/bdesign/03.png',
+        },
+        {
+          id: '04',
+          lazy: '/image/bdesign/04-lazy.png',
+          origin: '/image/bdesign/04.png',
+        },
+        {
+          id: '05',
+          lazy: '/image/bdesign/05-lazy.png',
+          origin: '/image/bdesign/05.png',
+        },
+        {
+          id: '06',
+          lazy: '/image/bdesign/06-lazy.png',
+          origin: '/image/bdesign/06.png',
+        },
+        {
+          id: '07',
+          lazy: '/image/bdesign/07-lazy.png',
+          origin: '/image/bdesign/07.png',
+        },
+      ],
+      imgObserver: null,
     };
+  },
+
+  created() {
+    this.imgObserver = new IntersectionObserver(this.loadImg, {
+      root: null,
+      threshold: 0,
+      rootMargin: '-300px',
+    });
+  },
+  beforeDestroy() {
+    this.imgObserver.disconnect();
+  },
+  methods: {
+    loadImg(entries, observer) {
+      const [entry] = entries;
+      // console.log(entry);
+
+      if (!entry.isIntersecting) return;
+
+      // Replace src with data-src
+      entry.target.src = entry.target.dataset.src;
+
+      entry.target.addEventListener('load', () => {
+        entry.target.classList.remove('lazy-img');
+      });
+
+      observer.unobserve(entry.target);
+    },
   },
 };
 </script>
@@ -95,11 +169,12 @@ export default {
       background-color: $grey-d;
     }
 
-    .info-01 {
+    .info-01,
+    .info-02 {
       position: relative;
       width: 50%;
       left: 50%;
-      margin-top: 160px;
+      margin: 160px 0;
 
       p {
         margin-left: 60px;
@@ -140,6 +215,11 @@ export default {
           }
         }
       }
+    }
+
+    .gallery {
+      position: relative;
+      width: 100%;
     }
   }
 }
