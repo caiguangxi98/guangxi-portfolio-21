@@ -1,15 +1,17 @@
 <template>
-  <div class="work">
-    <div class="intro">
-      <!-- eslint-disable vue/no-v-html -->
-      <h2 class="title" v-html="title"></h2>
-      <h4 class="year">{{ year }}</h4>
-      <h4 class="role" v-html="role"></h4>
-      <!--eslint-enable-->
-    </div>
-    <div class="img">
-      <img :src="img" alt="" />
-    </div>
+  <div :ref="`work-${id}`" class="work">
+    <NuxtLink :to="`/works/${link}`">
+      <div class="img">
+        <img :src="img" alt="" />
+      </div>
+      <div class="intro">
+        <!-- eslint-disable vue/no-v-html -->
+        <div class="title">{{ title }}</div>
+        <h4 class="year">{{ year }}</h4>
+        <h4 class="number">n°{{ id }}</h4>
+        <!--eslint-enable-->
+      </div>
+    </NuxtLink>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
       type: String,
       default: '',
     },
-    role: {
+    id: {
       type: String,
       default: '',
     },
@@ -36,6 +38,30 @@ export default {
       type: String,
       default: '',
     },
+    width: {
+      type: Number,
+      default: 50,
+    },
+    float: {
+      type: String,
+      default: '',
+    },
+  },
+  mounted() {
+    const workId = `work-${this.id}`;
+    const work = this.$refs[workId];
+
+    work.style.width = `${this.width}%`;
+
+    if (this.float === 'left') {
+      work.classList.add('left');
+    }
+    if (this.float === 'right') {
+      work.classList.add('right');
+    }
+    if (this.float === 'mid') {
+      work.classList.add('mid');
+    }
   },
 };
 </script>
@@ -43,31 +69,50 @@ export default {
 <style lang="scss" scoped>
 .work {
   position: relative;
-  width: 100%;
   height: auto;
   margin-top: 200px;
   margin-bottom: 80px;
-  @include grid-8;
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    left: 50%;
+  }
+
+  &.mid {
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
 
   .intro {
-    grid-column: 1/4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    .title {
-      font-family: $font2;
-    }
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    .title,
     .year,
-    .role {
-      font-family: $font1;
-      color: $grey-l;
+    .number {
+      display: inline-block;
+      line-height: 30px;
     }
-    .role {
-      line-height: 28px;
+    .title {
+      position: relative;
+      font-family: $font2;
+      font-size: 30px;
+    }
+    .year {
+      position: relative;
+      margin-left: 80px;
+    }
+    .number {
+      position: absolute;
+      font-family: $font4;
+      text-transform: uppercase;
+      right: 0;
     }
   }
   .img {
-    grid-column: 4/-1;
     & img {
       width: 100%;
       object-fit: cover;
