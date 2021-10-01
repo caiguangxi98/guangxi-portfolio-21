@@ -2,7 +2,7 @@
   <div class="About">
     <div class="content">
       <div class="info">
-        <div class="title">INFO</div>
+        <h2 class="title">INFO</h2>
         <div class="brief">
           <p class="p1">
             Guangxi Cai is a digital designer and creative technologist who
@@ -14,29 +14,29 @@
         </div>
       </div>
       <div class="contact">
-        <div class="title">CONTACT</div>
+        <h2 class="title">CONTACT</h2>
         <div class="social">
           <div class="email">
-            <span>Email</span>
-            <div class="s">
+            <h3>Email</h3>
+            <h3 class="s">
               <a href="mailto:caiguangxi98@gmail.com">caiguangxi98@gmail.com</a>
-            </div>
+            </h3>
           </div>
           <div class="insta">
-            <span>Instagram</span>
-            <div class="s">
+            <h3>Instagram</h3>
+            <h3 class="s">
               <a href="">guangxicai</a>
-            </div>
+            </h3>
           </div>
           <div class="linkedin">
-            <span>LinkedIn</span>
-            <div class="s">
+            <h3>LinkedIn</h3>
+            <h3 class="s">
               <a
                 href="https://www.linkedin.com/in/guangxi-cai-418818138/"
                 target="_blank"
                 >Guangxi Cai</a
               >
-            </div>
+            </h3>
           </div>
         </div>
       </div>
@@ -71,7 +71,6 @@ export default {
     .title {
       grid-column: 1/2;
       font-family: $font2;
-      font-size: 50px;
     }
 
     .brief {
@@ -94,12 +93,10 @@ export default {
 
     .title {
       font-family: $font2;
-      font-size: 50px;
     }
 
     .social {
       margin-top: 250px;
-      font-size: 25px;
 
       .email,
       .insta,

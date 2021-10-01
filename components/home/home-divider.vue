@@ -1,9 +1,6 @@
 <template>
   <div class="divider">
-    <h2 class="title">
-      <span>selected <br /></span>
-      <span>works</span>
-    </h2>
+    <h2 class="title">works</h2>
     <h4 class="para intro">
       A collection of recent works <br />
       by Guangxi Cai
