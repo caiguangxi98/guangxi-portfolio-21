@@ -4,11 +4,8 @@
       <h3 class="navi-works">
         <NuxtLink to="/">Works</NuxtLink>
       </h3>
-      <h3 class="navi-info">
-        <NuxtLink to="/info">Info</NuxtLink>
-      </h3>
-      <h3 class="navi-contact">
-        <NuxtLink to="/contact">Contact</NuxtLink>
+      <h3 class="navi-about">
+        <NuxtLink to="/about">About</NuxtLink>
       </h3>
     </div>
     <div class="navi-home" @click="goHome"></div>
@@ -35,14 +32,12 @@ export default {
     right: 20px;
 
     .navi-works,
-    .navi-info,
-    .navi-contact {
+    .navi-about {
       color: $text;
       font-family: $font1;
       display: inline-block;
     }
-    .navi-works,
-    .navi-info {
+    .navi-works {
       margin-right: 30px;
     }
   }
