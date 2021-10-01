@@ -36,11 +36,11 @@ export default {
     },
   },
   mounted() {
-    // console.log('mounted');
+    const yOffset = window.innerWidth / 10 + 50;
 
     this.tl = gsap.timeline();
     this.tl.from('.char span', 1, {
-      y: 200,
+      y: yOffset,
       ease: 'power4.out',
       delay: 0.2,
       skewY: 10,
