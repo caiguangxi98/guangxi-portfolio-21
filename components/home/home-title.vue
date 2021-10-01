@@ -10,11 +10,7 @@
     </div>
     <div class="line line-03">
       <h1 class="char digital"><span>Digital</span></h1>
-      <div
-        class="circ"
-        :class="{ circBlue: isDarkMood }"
-        @click="changeColorMood"
-      ></div>
+      <div class="slash">/</div>
       <h1 class="char kor-01"><span>채</span></h1>
       <h1 class="char kor-02"><span>광석</span></h1>
     </div>
@@ -94,6 +90,7 @@ export default {
 
   .char {
     overflow: hidden;
+    font-size: 10vw;
     // border: 1px solid black;
     & span {
       display: inline-block;
@@ -119,27 +116,21 @@ export default {
     grid-column: 1/5;
   }
 
-  .circ {
+  .slash {
     position: absolute;
-    left: calc(50% - 60px);
-    top: calc(50% - 60px);
-    background: $orange;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    transition: background 0.2s ease;
-  }
-  .circBlue {
-    background: $blue;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    font-family: $font4;
+    font-size: 10.5vw;
+    color: $blue;
+    // font-size: 160px;
   }
   .kor-01 {
     font-family: $font5;
-    font-size: 150px;
     grid-column: 6/8;
   }
   .kor-02 {
     font-family: $font5;
-    font-size: 150px;
     position: absolute;
     right: 0;
   }

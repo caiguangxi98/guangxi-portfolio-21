@@ -12,7 +12,13 @@
       <h4 class="year-01">19</h4>
       <h4 class="year-02">-21</h4>
     </div>
-    <h2 class="count">( 6 )</h2>
+    <div class="scroll-down">
+      <svg width="30" height="33" fill="none">
+        <path
+          d="M12.737 0h4.495v24.574l9.59-9.59L30 18.164 15.166 32.996 15 32.831l-.166.166L0 18.163l3.179-3.178 9.558 9.558V0Z"
+        />
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -73,9 +79,12 @@ export default {
       margin-right: 72px;
     }
   }
-  .count {
-    font-family: $font2;
-    line-height: 60px;
+  .scroll-down {
+    align-self: center;
+    justify-self: end;
+    path {
+      fill: #edfaff;
+    }
   }
 }
 </style>
