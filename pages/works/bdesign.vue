@@ -34,7 +34,9 @@
         <p>{{ brief.info02 }}</p>
       </div>
 
-      <div class="gallery"></div>
+      <div class="logo">
+        <img :src="logo" alt="" />
+      </div>
       <!--eslint-enable-->
     </div>
     <div class="next"></div>
@@ -51,6 +53,7 @@ export default {
   data() {
     return {
       cover: '/image/bdesign/cover.png',
+      logo: '/image/bdesign/logo.gif',
       brief: {
         title: 'B-Design',
         company: 'Alibaba Cloud',
@@ -69,6 +72,11 @@ export default {
         },
       },
       gallery01: [
+        {
+          id: '00',
+          lazy: '/image/bdesign/frames-lazy.png',
+          origin: '/image/bdesign/frames.png',
+        },
         {
           id: '01',
           lazy: '/image/bdesign/01-lazy.png',
@@ -104,6 +112,11 @@ export default {
           lazy: '/image/bdesign/07-lazy.png',
           origin: '/image/bdesign/07.png',
         },
+        {
+          id: '08',
+          lazy: '/image/bdesign/posters-lazy.png',
+          origin: '/image/bdesign/posters.png',
+        },
       ],
       imgObserver: null,
     };
@@ -113,7 +126,7 @@ export default {
     this.imgObserver = new IntersectionObserver(this.loadImg, {
       root: null,
       threshold: 0,
-      rootMargin: '-300px',
+      rootMargin: '-120px',
     });
   },
   beforeDestroy() {
@@ -217,9 +230,15 @@ export default {
       }
     }
 
-    .gallery {
+    .gallery,
+    .logo {
       position: relative;
       width: 100%;
+    }
+
+    .logo img {
+      width: 100%;
+      object-fit: cover;
     }
   }
 }
