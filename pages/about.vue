@@ -1,8 +1,118 @@
 <template>
-  <div class="About">This is About Page.</div>
+  <div class="About">
+    <div class="content">
+      <div class="info">
+        <div class="title">INFO</div>
+        <div class="brief">
+          <p class="p1">
+            Guangxi Cai is a digital designer and creative technologist who
+            specializes in visual and interaction design.
+          </p>
+          <p class="p2">
+            He's currently working at Alibaba Cloud, Hangzhou, China.
+          </p>
+        </div>
+      </div>
+      <div class="contact">
+        <div class="title">CONTACT</div>
+        <div class="social">
+          <div class="email">
+            <span>Email</span>
+            <div class="s">
+              <a href="mailto:caiguangxi98@gmail.com">caiguangxi98@gmail.com</a>
+            </div>
+          </div>
+          <div class="insta">
+            <span>Instagram</span>
+            <div class="s">
+              <a href="">guangxicai</a>
+            </div>
+          </div>
+          <div class="linkedin">
+            <span>LinkedIn</span>
+            <div class="s">
+              <a
+                href="https://www.linkedin.com/in/guangxi-cai-418818138/"
+                target="_blank"
+                >Guangxi Cai</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="photo"></div>
+    </div>
+    <navi-footer></navi-footer>
+  </div>
 </template>
+
+<script>
+import NaviFooter from '~/components/navi-footer.vue';
+export default {
+  components: { NaviFooter },
+};
+</script>
+
 <style lang="scss" scoped>
 .About {
-  font-size: 60px;
+  position: relative;
+  left: 0;
+  width: 100%;
+  .content {
+    width: 98%;
+    margin: 180px auto 0 auto;
+  }
+  .info {
+    position: relative;
+    width: 100%;
+    height: auto;
+    @include grid-8;
+
+    .title {
+      grid-column: 1/2;
+      font-family: $font2;
+      font-size: 50px;
+    }
+
+    .brief {
+      grid-column: 3/-3;
+      p {
+        font-family: $font1;
+        font-size: 40px;
+      }
+      .p1 {
+        margin-bottom: 45px;
+      }
+    }
+  }
+
+  .contact {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 180px;
+
+    .title {
+      font-family: $font2;
+      font-size: 50px;
+    }
+
+    .social {
+      margin-top: 250px;
+      font-size: 25px;
+
+      .email,
+      .insta,
+      .linkedin {
+        @include grid-8;
+        margin-bottom: 20px;
+
+        .s {
+          grid-column: 3/-1;
+          font-family: $font2;
+        }
+      }
+    }
+  }
 }
 </style>

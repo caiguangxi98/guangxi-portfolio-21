@@ -1,16 +1,18 @@
 <template>
-  <div class="footer">
+  <div class="Footer">
     <div class="footer-top">
-      <h1 class="navi-info">
-        <NuxtLink to="/info">Info</NuxtLink>
+      <h1 class="navi-works">
+        <NuxtLink to="/">Works</NuxtLink>
       </h1>
       <h1 class="slash">/</h1>
-      <h1 class="navi-contact">
-        <NuxtLink to="/contact">Contact</NuxtLink>
+      <h1 class="navi-about">
+        <NuxtLink to="/about">About</NuxtLink>
       </h1>
     </div>
     <div class="footer-bottom">
-      <h4 class="author">Dev & Design by Guangxi Cai</h4>
+      <h4 class="author">
+        Dev & Design by <a href="mailto:caiguangxi98@gmail.com">Guangxi Cai</a>
+      </h4>
       <h4 class="copy">All Rights Reserved</h4>
       <h4 class="year">2021®</h4>
     </div>
@@ -25,11 +27,11 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.footer {
+.Footer {
   position: relative;
-  width: 100%;
+  width: 98%;
   height: auto;
-  margin-top: 480px;
+  margin: 480px auto 0 auto;
   .footer-top {
     position: relative;
     width: 100%;
@@ -56,6 +58,10 @@ export default {};
     margin-bottom: 14px;
     .author {
       grid-column: 1/3;
+      a {
+        font-family: $font2;
+        color: $white;
+      }
     }
     .copy {
       grid-column: 3/-2;

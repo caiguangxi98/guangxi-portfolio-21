@@ -3,17 +3,17 @@
     <home-title></home-title>
     <home-divider></home-divider>
     <home-works></home-works>
-    <home-footer></home-footer>
+    <navi-footer></navi-footer>
   </div>
 </template>
 
 <script>
 import HomeDivider from '~/components/home/home-divider.vue';
-import HomeFooter from '~/components/home/home-footer.vue';
 import HomeTitle from '~/components/home/home-title.vue';
 import HomeWorks from '~/components/home/home-works.vue';
+import NaviFooter from '~/components/navi-footer.vue';
 export default {
-  components: { HomeTitle, HomeDivider, HomeWorks, HomeFooter },
+  components: { HomeTitle, HomeDivider, HomeWorks, NaviFooter },
 };
 </script>
 
