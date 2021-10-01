@@ -39,26 +39,15 @@ export default {
     // console.log('mounted');
 
     this.tl = gsap.timeline();
-    this.tl
-      .from('.char span', 1, {
-        y: 200,
-        ease: 'power4.out',
-        delay: 0.2,
-        skewY: 10,
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .from(
-        '.circ',
-        {
-          scale: 0,
-          opacity: 0,
-          delay: 0.6,
-          ease: 'Expo.easeOut',
-        },
-        '<'
-      );
+    this.tl.from('.char span', 1, {
+      y: 200,
+      ease: 'power4.out',
+      delay: 0.2,
+      skewY: 10,
+      stagger: {
+        amount: 0.4,
+      },
+    });
   },
   beforeDestroy() {
     this.tl.kill();
