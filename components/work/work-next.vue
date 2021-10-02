@@ -8,7 +8,7 @@
       <div class="icon">
         <svg width="30" height="33" fill="none">
           <path
-            d="M12.737 0h4.495v24.574l9.59-9.59L30 18.164 15.166 32.996 15 32.831l-.166.166L0 18.163l3.179-3.178 9.558 9.558V0Z"
+            d="M17.263 32.997h-4.495V8.424l-9.59 9.589L0 14.833 14.834 0 15 .166 15.166 0 30 14.834l-3.179 3.179-9.558-9.559v24.543Z"
           />
         </svg>
       </div>
@@ -30,10 +30,11 @@ export default {
 <style lang="scss" scoped>
 .next {
   position: relative;
-  width: 425px;
+  width: 428px;
   left: 50%;
   margin-top: 320px;
   transform: translate3d(-50%, 0, 0);
+  color: $grey-l;
 
   .button {
     position: relative;
@@ -57,8 +58,20 @@ export default {
     left: 45%;
     margin-top: 20px;
     & svg {
-      fill: $white;
+      fill: $grey-l;
     }
+  }
+
+  a.nuxt-link-exact-active {
+    color: $text;
+  }
+  a:hover {
+    color: $text;
+  }
+  a {
+    transition: color 0.2s ease;
+    text-decoration: none;
+    color: $grey-l;
   }
 }
 </style>

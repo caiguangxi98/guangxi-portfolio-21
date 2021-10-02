@@ -7,7 +7,7 @@
       <!-- eslint-disable vue/no-v-html -->
       <work-brief v-bind="brief"></work-brief>
 
-      <div class="work-video">video</div>
+      <div class="work-video"></div>
 
       <div class="info info-01">
         <p>{{ brief.info01 }}</p>
@@ -56,6 +56,7 @@ export default {
     return {
       cover: '/image/bdesign/cover.png',
       logo: '/image/bdesign/logo.gif',
+      video: '/video/bdesign/video.mp4',
       next: {
         id: '02',
         project: 'BIV Builder',
