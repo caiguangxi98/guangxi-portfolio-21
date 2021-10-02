@@ -1,5 +1,5 @@
 <template>
-  <div class="Work">
+  <div ref="work" class="Work">
     <div class="cover">
       <img :src="cover" alt="" />
     </div>
@@ -39,21 +39,28 @@
       </div>
       <!--eslint-enable-->
     </div>
-    <div class="next"></div>
+
+    <work-next :next="next"></work-next>
     <navi-footer></navi-footer>
   </div>
 </template>
 
 <script>
 import NaviFooter from '~/components/navi-footer.vue';
-import workBrief from '~/components/work/work-brief.vue';
+import WorkBrief from '~/components/work/work-brief.vue';
 import WorkImage from '~/components/work/work-image.vue';
+import WorkNext from '~/components/work/work-next.vue';
 export default {
-  components: { workBrief, NaviFooter, WorkImage },
+  components: { WorkBrief, NaviFooter, WorkImage, WorkNext },
   data() {
     return {
       cover: '/image/bdesign/cover.png',
       logo: '/image/bdesign/logo.gif',
+      next: {
+        id: '02',
+        project: 'BIV Builder',
+        link: 'biv',
+      },
       brief: {
         title: 'B-Design',
         company: 'Alibaba Cloud',
@@ -126,9 +133,10 @@ export default {
     this.imgObserver = new IntersectionObserver(this.loadImg, {
       root: null,
       threshold: 0,
-      rootMargin: '-120px',
+      rootMargin: '-60px',
     });
   },
+  mounted() {},
   beforeDestroy() {
     this.imgObserver.disconnect();
   },
@@ -157,11 +165,12 @@ export default {
   position: relative;
   width: 100%;
   height: auto;
+  padding-top: 140px;
 
   .cover {
     position: relative;
     width: 100%;
-    margin-top: 140px;
+    // margin-top: 140px;
 
     & img {
       width: 100%;

@@ -31,7 +31,7 @@ export default {};
   position: relative;
   width: 98%;
   height: auto;
-  margin: 480px auto 0 auto;
+  margin: 320px auto 0 auto;
   .footer-top {
     position: relative;
     width: 100%;
