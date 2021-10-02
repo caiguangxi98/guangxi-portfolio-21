@@ -1,8 +1,6 @@
 <template>
   <div ref="work" class="Work">
-    <div class="cover">
-      <img :src="cover" alt="" />
-    </div>
+    <work-cover :cover="cover" :observer="imgObserver"></work-cover>
     <div class="content">
       <!-- eslint-disable vue/no-v-html -->
       <work-brief v-bind="brief"></work-brief>
@@ -50,13 +48,17 @@
 <script>
 import NaviFooter from '~/components/navi-footer.vue';
 import WorkBrief from '~/components/work/work-brief.vue';
+import WorkCover from '~/components/work/work-cover.vue';
 import WorkImage from '~/components/work/work-image.vue';
 import WorkNext from '~/components/work/work-next.vue';
 export default {
-  components: { WorkBrief, NaviFooter, WorkImage, WorkNext },
+  components: { WorkBrief, NaviFooter, WorkImage, WorkNext, WorkCover },
   data() {
     return {
-      cover: '/image/bdesign/cover.png',
+      cover: {
+        lazy: '/image/bdesign/cover-lazy.png',
+        origin: '/image/bdesign/cover.png',
+      },
       logo: '/image/bdesign/logo.gif',
       video: '/video/bdesign/video.mp4',
       next: {
@@ -169,17 +171,6 @@ export default {
   width: 100%;
   height: auto;
   padding-top: 140px;
-
-  .cover {
-    position: relative;
-    width: 100%;
-    // margin-top: 140px;
-
-    & img {
-      width: 100%;
-      object-fit: cover;
-    }
-  }
 
   .content {
     position: relative;

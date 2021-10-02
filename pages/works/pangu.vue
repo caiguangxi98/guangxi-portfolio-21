@@ -1,8 +1,7 @@
 <template>
   <div ref="work" class="Work">
-    <div class="cover">
-      <img :src="cover" alt="" />
-    </div>
+    <work-cover :cover="cover" :observer="imgObserver"></work-cover>
+
     <div class="content">
       <!-- eslint-disable vue/no-v-html -->
       <work-brief v-bind="brief"></work-brief>
@@ -39,7 +38,10 @@ export default {
   components: { WorkBrief, NaviFooter, WorkImage, WorkPrev },
   data() {
     return {
-      cover: '/image/pangu/cover.png',
+      cover: {
+        lazy: '/image/pangu/cover-lazy.png',
+        origin: '/image/pangu/cover.png',
+      },
       prev: {
         id: '05',
         project: 'S Awards',
