@@ -20,7 +20,6 @@ export default {
 <style lang="scss" scoped>
 .Home {
   position: relative;
-  // top: -100vh; // TODO ???
   left: 0;
   width: 98%;
   height: 1px;
