@@ -34,6 +34,8 @@
         <p>{{ brief.info02 }}</p>
       </div>
 
+      <work-image :img="poster" :observer="imgObserver"></work-image>
+
       <div class="logo">
         <img :src="logo" alt="" />
       </div>
@@ -120,12 +122,12 @@ export default {
           lazy: '/image/bdesign/07-lazy.png',
           origin: '/image/bdesign/07.png',
         },
-        {
-          id: '08',
-          lazy: '/image/bdesign/posters-lazy.png',
-          origin: '/image/bdesign/posters.png',
-        },
       ],
+      poster: {
+        id: '08',
+        lazy: '/image/bdesign/posters-lazy.png',
+        origin: '/image/bdesign/posters.png',
+      },
       imgObserver: null,
     };
   },
