@@ -15,7 +15,8 @@
     "gsap": "^3.7.1",
     "locomotive-scroll": "^4.1.1",
     "nuxt": "^2.15.7",
-    "nuxt-video-player": "^1.0.17"
+    "nuxt-video-player": "^1.0.17",
+    "three": "^0.133.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

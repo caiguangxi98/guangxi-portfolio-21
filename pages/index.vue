@@ -1,5 +1,6 @@
 <template>
   <div class="Home">
+    <home-background></home-background>
     <home-title></home-title>
     <home-divider></home-divider>
     <home-works></home-works>
@@ -8,12 +9,13 @@
 </template>
 
 <script>
+import HomeBackground from '~/components/home/home-background.vue';
 import HomeDivider from '~/components/home/home-divider.vue';
 import HomeTitle from '~/components/home/home-title.vue';
 import HomeWorks from '~/components/home/home-works.vue';
 import NaviFooter from '~/components/navi-footer.vue';
 export default {
-  components: { HomeTitle, HomeDivider, HomeWorks, NaviFooter },
+  components: { HomeTitle, HomeDivider, HomeWorks, NaviFooter, HomeBackground },
 };
 </script>
 

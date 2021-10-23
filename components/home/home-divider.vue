@@ -36,7 +36,7 @@ export default {
   position: relative;
   width: 100%;
   height: auto;
-  margin-top: 150px;
+  //margin-top: 150px;
   @include grid-8;
 
   .title {

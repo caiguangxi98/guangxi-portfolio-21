@@ -8,10 +8,6 @@
     </div>
 
     <div class="slash">/</div>
-    <div class="name">
-      <div class="t1">채</div>
-      <div class="t2">광석</div>
-    </div>
 
     <div class="year">
       <div class="char start">
@@ -82,7 +78,7 @@ export default {
   position: relative;
   top: 20px;
   left: 0;
-  height: 75vh;
+  height: 85vh;
   font-family: $font2;
   text-transform: uppercase;
   @include grid-8;
@@ -100,7 +96,7 @@ export default {
     top: -8px;
     font-size: 11.2vw;
     color: $grey-d;
-    opacity: 0.2;
+    opacity: 0;
   }
 
   .line {
@@ -125,23 +121,6 @@ export default {
     font-size: 240px;
     color: $blue;
     transform: translate3d(-50%, -50%, 0);
-  }
-
-  .name {
-    position: absolute;
-    left: 540px;
-    top: -32px;
-
-    .t1,
-    .t2 {
-      display: inline-block;
-      font-family: $font5;
-      font-size: 16px;
-    }
-
-    .t2 {
-      margin-left: 54px;
-    }
   }
 
   .year {
@@ -190,7 +169,7 @@ export default {
     }
 
     .visual {
-      top: 32px;
+      top: 28px;
     }
 
     .motion {
