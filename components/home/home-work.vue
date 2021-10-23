@@ -89,7 +89,7 @@ export default {
   .intro {
     position: relative;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 12px;
     .title,
     .year,
     .number {
@@ -99,17 +99,19 @@ export default {
     .title {
       position: relative;
       font-family: $font2;
-      font-size: 30px;
+      font-size: 28px;
     }
     .year {
       position: relative;
       margin-left: 80px;
+      top: -2px;
     }
     .number {
       position: absolute;
       font-family: $font4;
       text-transform: uppercase;
       right: 0;
+      top: 2px;
     }
   }
   .img {

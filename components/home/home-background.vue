@@ -64,8 +64,8 @@ export default {
         uniforms: {
           time: { value: 0 },
           uDisplaceX: { value: 4 },
-          uDisplaceY: { value: 3 },
-          uStrengthX: { value: 0.06 },
+          uDisplaceY: { value: 2 },
+          uStrengthX: { value: 0.0 },
           uStrengthY: { value: 0.02 },
           tex: {
             value: new THREE.TextureLoader().load('/bg.png'),
@@ -206,7 +206,9 @@ export default {
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       });
       window.addEventListener('scroll', (e) => {
-        // console.log(window.pageYOffset);
+        const offsetY = window.pageYOffset / this.sizes.h;
+        if (!this.material) return;
+        this.material.uniforms.uStrengthY.value = 0.02 + offsetY * 0.8;
       });
     },
 

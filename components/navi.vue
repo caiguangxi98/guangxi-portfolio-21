@@ -44,10 +44,10 @@ export default {
   .navi-home {
     position: fixed;
     bottom: 35px;
-    right: calc(1% + 4px);
+    right: calc(1% + 14px);
     background: $white;
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     // border: 1px solid $grey-d;
     border-radius: 50%;
     transition: background 0.2s ease;

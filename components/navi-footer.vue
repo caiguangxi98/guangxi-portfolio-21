@@ -4,7 +4,7 @@
       <h1 class="navi-works">
         <NuxtLink to="/">Works</NuxtLink>
       </h1>
-      <h1 class="slash">/</h1>
+      <div class="slash">/</div>
       <h1 class="navi-about">
         <NuxtLink to="/about">About</NuxtLink>
       </h1>
@@ -13,8 +13,7 @@
       <h4 class="author">
         Dev & Design by <a href="mailto:caiguangxi98@gmail.com">Guangxi Cai</a>
       </h4>
-      <h4 class="copy">All Rights Reserved</h4>
-      <h4 class="year">2021®</h4>
+      <h4 class="copy">All Rights Reserved guangxi cai 2021®</h4>
     </div>
     <div class="footer-line">
       <div class="line"></div>
@@ -49,6 +48,7 @@ export default {};
     }
     .slash {
       font-family: $font4;
+      font-size: 140px;
     }
   }
   .footer-bottom {
@@ -56,6 +56,7 @@ export default {};
     color: $grey-d;
     font-family: $font1;
     margin-bottom: 14px;
+    text-transform: uppercase;
     .author {
       grid-column: 1/3;
       a {
@@ -64,7 +65,9 @@ export default {};
       }
     }
     .copy {
-      grid-column: 3/-2;
+      position: absolute;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
     }
   }
   .footer-line {
