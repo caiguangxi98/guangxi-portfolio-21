@@ -1,23 +1,39 @@
 <template>
   <div class="title">
-    <div class="line line-01">
-      <h1 class="char guang"><span>guang</span></h1>
-      <h1 class="char xi"><span>xi</span></h1>
+    <div class="title-main">
+      <div class="line l1">guangxi cai</div>
+      <div class="line l2">digital designer</div>
+      <div class="line l3">and creative</div>
+      <div class="line l4">technologist</div>
     </div>
-    <div class="line line-02">
-      <h1 class="char cai"><span>cai</span></h1>
-      <h1 class="char num"><span>100%</span></h1>
+
+    <div class="slash">/</div>
+    <div class="name">
+      <div class="t1">채</div>
+      <div class="t2">광석</div>
     </div>
-    <div class="line line-03">
-      <h1 class="char digital"><span>Digital</span></h1>
-      <div class="slash">/</div>
-      <h1 class="char kor-01"><span>채</span></h1>
-      <h1 class="char kor-02"><span>광석</span></h1>
+
+    <div class="year">
+      <div class="char start">
+        <span class="t1">19</span>
+        <span class="t2">⊘</span>
+      </div>
+      <div class="char name-eng">
+        <span class="t1">guangxi</span>
+        <span class="t2">cai</span>
+      </div>
+      <div class="char end"><span>21 -</span></div>
+      <div class="char name-kor">
+        <span class="t1">채</span>
+        <span class="t2">광석</span>
+      </div>
     </div>
-    <div class="line line-04">
-      <h1 class="char desig"><span>desig</span></h1>
-      <div class="bar"><span></span></div>
-      <h1 class="char ner"><span>ner</span></h1>
+
+    <div class="deco">
+      <div class="word char visual"><span>visual</span></div>
+      <div class="word char motion"><span>motion</span></div>
+      <div class="word char coding"><span>code</span></div>
+      <div class="word char threed"><span>3D</span></div>
     </div>
   </div>
 </template>
@@ -66,79 +82,128 @@ export default {
   position: relative;
   top: 20px;
   left: 0;
+  height: 75vh;
   font-family: $font2;
   text-transform: uppercase;
-  font-size: 160px;
-
-  .line {
-    position: relative;
-    width: 100%;
-    height: auto;
-    @include grid-8;
-  }
+  @include grid-8;
 
   .char {
     overflow: hidden;
-    font-size: 10vw;
-    // border: 1px solid black;
     & span {
       display: inline-block;
-      //transform: translateY(-10%);
     }
   }
-  .guang {
-    grid-column: 1/5;
-  }
-  .xi {
-    grid-column: 5;
-  }
-  .cai {
-    grid-column: 3/5;
-  }
-  .num {
-    font-family: $font4;
+
+  .title-main {
     position: absolute;
-    right: 0;
+    left: 0;
+    top: -8px;
+    font-size: 11.2vw;
+    color: $grey-d;
+    opacity: 0.2;
   }
 
-  .digital {
-    grid-column: 1/5;
+  .line {
+    position: relative;
+  }
+
+  .l2,
+  .l3,
+  .l4 {
+    margin-top: -8px;
+  }
+
+  .l3 {
+    left: 20.4vw;
   }
 
   .slash {
     position: absolute;
     left: 50%;
-    transform: translate3d(-50%, 0, 0);
+    top: 50%;
     font-family: $font4;
-    font-size: 10.5vw;
+    font-size: 240px;
     color: $blue;
-    // font-size: 160px;
+    transform: translate3d(-50%, -50%, 0);
   }
-  .kor-01 {
-    font-family: $font5;
-    grid-column: 6/8;
-  }
-  .kor-02 {
-    font-family: $font5;
-    position: absolute;
-    right: 0;
-  }
-  .desig {
-    grid-column: 2/5;
-  }
-  .ner {
-    grid-column: 6/-1;
-  }
-  .bar {
-    grid-column: 5;
-    display: grid;
-    place-items: center end;
 
-    & span {
+  .name {
+    position: absolute;
+    left: 540px;
+    top: -32px;
+
+    .t1,
+    .t2 {
       display: inline-block;
-      width: 42px;
-      height: 16px;
-      background: $text;
+      font-family: $font5;
+      font-size: 16px;
+    }
+
+    .t2 {
+      margin-left: 54px;
+    }
+  }
+
+  .year {
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    font-family: $font4;
+    transform: translate3d(0, -50%, 0);
+    @include grid-8;
+
+    .start {
+      grid-column: 1;
+      .t2 {
+        margin-left: 20px;
+      }
+    }
+
+    .end {
+      grid-column: 7;
+    }
+
+    .name-eng {
+      font-family: $font2;
+      .t2 {
+        margin-left: 50px;
+      }
+    }
+    .name-kor {
+      font-family: $font5;
+      justify-self: end;
+      .t2 {
+        margin-left: 80px;
+      }
+    }
+  }
+
+  .deco {
+    font-size: 12px;
+    grid-column: -3;
+    position: relative;
+
+    .word {
+      position: absolute;
+    }
+
+    .visual {
+      top: 32px;
+    }
+
+    .motion {
+      top: 50%;
+      transform: translate3d(0, -40px, 0);
+    }
+
+    .coding {
+      bottom: 14%;
+    }
+
+    .threed {
+      bottom: 0%;
     }
   }
 }

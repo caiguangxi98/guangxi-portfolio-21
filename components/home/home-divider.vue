@@ -1,16 +1,9 @@
 <template>
   <div class="divider">
-    <h2 class="title">works</h2>
-    <h4 class="para intro">
+    <div class="title">works</div>
+    <div class="para intro">
       A collection of recent works <br />
       by Guangxi Cai
-    </h4>
-    <h4 class="para current">
-      Currently @ <a href="https://aliyun.com/">Alibaba Cloud</a>
-    </h4>
-    <div class="year">
-      <h4 class="year-01">19</h4>
-      <h4 class="year-02">-21</h4>
     </div>
     <div class="scroll-down">
       <svg width="30" height="33" fill="none">
@@ -50,36 +43,28 @@ export default {
     grid-column: 1/3;
     text-transform: uppercase;
     font-family: $font2;
-    line-height: 60px;
+    line-height: 48px;
     height: auto;
+    font-size: 42px;
   }
 
-  .para,
-  .year {
+  .para {
     color: $grey-d;
     font-family: $font1;
     margin-top: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
   }
   .intro {
-    grid-column: 3/5;
-  }
-  .current {
-    grid-column: 5/7;
-    & a {
-      color: $grey-d;
-    }
-  }
-  .year {
-    grid-column: 7;
-    .year-01,
-    .year-02 {
-      display: inline-block;
-    }
-    .year-01 {
-      margin-right: 72px;
-    }
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translate3d(-50%, 0, 0);
+    text-align: center;
   }
   .scroll-down {
+    grid-column: -2;
     align-self: center;
     justify-self: end;
     path {

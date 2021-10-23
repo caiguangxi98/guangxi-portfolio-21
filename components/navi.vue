@@ -44,7 +44,7 @@ export default {
   .navi-home {
     position: fixed;
     bottom: 35px;
-    right: 1%;
+    right: calc(1% + 4px);
     background: $white;
     width: 20px;
     height: 20px;
