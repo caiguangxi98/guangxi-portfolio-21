@@ -100,4 +100,95 @@ export default {
     background: $grey-d;
   }
 }
+
+@media screen and ($breakPoint1) {
+  .Footer {
+    .footer-top {
+      margin-bottom: 60px;
+      .slash {
+        font-size: 120px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint2) {
+  .Footer {
+    .footer-top {
+      margin-bottom: 60px;
+      .slash {
+        font-size: 100px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint3) {
+  .footer-bottom {
+    @include grid-4;
+    .author {
+      grid-column: 1/-2;
+      font-size: 14px;
+    }
+    .copy {
+      font-size: 14px;
+    }
+  }
+}
+@media screen and ($breakPoint4) {
+  .Footer {
+    .footer-top {
+      margin-bottom: 40px;
+      .slash {
+        position: relative;
+        top: -10px;
+        font-size: 80px;
+      }
+    }
+  }
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+    .copy {
+      position: relative;
+      left: 0;
+      top: -10px;
+      width: 100%;
+      transform: translate3d(0, 0, 0);
+      text-align: center;
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .Footer {
+    .footer-top {
+      margin-bottom: 20px;
+      .slash {
+        top: -8px;
+        font-size: 60px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint6) {
+  .Footer {
+    .footer-top {
+      margin-bottom: 20px;
+      .slash {
+        top: -4px;
+        font-size: 40px;
+      }
+    }
+  }
+  .footer-bottom {
+    .author {
+      font-size: 12px;
+    }
+    .copy {
+      font-size: 12px;
+      width: 50%;
+    }
+  }
+}
 </style>

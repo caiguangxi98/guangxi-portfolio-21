@@ -78,7 +78,9 @@ export default {
   position: relative;
   top: 20px;
   left: 0;
-  height: 85vh;
+  width: 98%;
+  height: 100vh;
+  margin: 0 auto;
   font-family: $font2;
   text-transform: uppercase;
   @include grid-8;
@@ -169,7 +171,7 @@ export default {
     }
 
     .visual {
-      top: 28px;
+      top: 25px;
     }
 
     .motion {
@@ -178,11 +180,11 @@ export default {
     }
 
     .coding {
-      bottom: 14%;
+      bottom: 18%;
     }
 
     .threed {
-      bottom: 0%;
+      bottom: 8%;
     }
   }
 }

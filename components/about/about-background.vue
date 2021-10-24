@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="home-background"></div>
+  <div ref="container" class="about-background"></div>
 </template>
 
 <script>
@@ -25,7 +25,7 @@ export default {
   mounted() {
     this.sizes = {
       w: window.innerWidth,
-      h: window.innerHeight,
+      h: window.innerHeight * 0.85,
     };
     this.setScene();
     this.setMesh();
@@ -55,43 +55,26 @@ export default {
         0.01,
         1000
       );
-      this.camera.position.z = 0.45;
-      this.camera.position.y = -0.01;
+      this.camera.position.x = -0.64;
+      this.camera.position.y = 0.1;
+      this.camera.position.z = 1;
     },
 
     setMesh() {
-      this.geometry = new THREE.PlaneBufferGeometry(1, 0.46);
+      this.geometry = new THREE.PlaneBufferGeometry(0.68, 1, 32, 32);
       this.material = new THREE.ShaderMaterial({
         uniforms: {
           time: { value: 0 },
-          uDisplaceX: { value: 4 },
-          uDisplaceY: { value: 2 },
-          uStrengthX: { value: 0.0 },
-          uStrengthY: { value: 0.02 },
           tex: {
-            value: new THREE.TextureLoader().load('/bg.png'),
+            value: new THREE.TextureLoader().load('/me.png'),
           },
         },
         vertexShader: `
+					uniform float time;
 					varying vec2 vUv;
+					varying float vWave;
 
-					void main() {
-						vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-						gl_Position = projectionMatrix * mvPosition;
-
-						vUv = uv;
-					}
-				`,
-        fragmentShader: `
-          uniform float time;
-          uniform float uDisplaceX;
-          uniform float uDisplaceY;
-          uniform float uStrengthX;
-          uniform float uStrengthY;
-          uniform sampler2D tex;
-          varying vec2 vUv;
-
-          //	Simplex 3D Noise
+					//	Simplex 3D Noise
           //	by Ian McEwan, Ashima Arts
           //
           vec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}
@@ -167,27 +150,35 @@ export default {
           }
 
 					void main() {
-            vec3 outgo;
+						vec3 pos = position;
+						float noiseFreqX = 1.8;
+						float noiseFreqY = 0.2;
+						float noiseAmp = 0.05;
+						vec3 noisePos = vec3(pos.x * noiseFreqX + time, pos.y * noiseFreqY + time, pos.z);
+						pos.z += snoise(noisePos) * noiseAmp;
+						vWave = pos.z;
 
-            vec2 newUv = vUv;
-            newUv.x += snoise( vec3(vUv.xy * uDisplaceX, 0.5) + time ) * uStrengthX;
-            newUv.y += snoise( vec3(vUv.yx * uDisplaceY, 0.5) + time ) * uStrengthY;
+						vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+						gl_Position = projectionMatrix * mvPosition;
 
-            float angle = 1.2;
-            vec2 offset = 0.01 * vec2(cos(angle + time), sin(angle - time));
-            vec3 cR = texture2D(tex, newUv + offset * 0.4).xyz;
-            vec3 cG = texture2D(tex, newUv + offset * 0.0).xyz;
-            vec3 cB = texture2D(tex, newUv - offset * 0.1).xyz;
-
-            outgo = vec3(cR.r, cG.g, cB.b);
-            outgo *= 1.8;
-
-						vec4 tex = texture2D(tex, newUv);
-            float a = tex.w;
-						gl_FragColor = vec4(outgo, a);
+						vUv = uv;
 					}
 				`,
-        transparent: true,
+        fragmentShader: `
+          uniform float time;
+          uniform sampler2D tex;
+          varying vec2 vUv;
+          varying float vWave;
+
+					void main() {
+						float wave = vWave * 0.1;
+						float r = texture2D(tex, vUv + wave).r;
+						float g = texture2D(tex, vUv).g;
+						float b = texture2D(tex, vUv).b;
+						vec3 tex = vec3(r, g, b);
+						gl_FragColor = vec4(tex, 1.0);
+					}
+				`,
       });
       this.mesh = new THREE.Mesh(this.geometry, this.material);
       this.mesh.matrixAutoUpdate = false;
@@ -197,24 +188,17 @@ export default {
 
     setMouseEffects() {
       window.addEventListener('resize', this.windowResize);
-      window.addEventListener('scroll', this.windowScroll);
     },
 
     windowResize() {
       this.sizes.w = window.innerWidth;
-      this.sizes.h = window.innerHeight;
+      this.sizes.h = window.innerHeight * 0.85;
 
       this.camera.aspect = this.sizes.w / this.sizes.h;
       this.camera.updateProjectionMatrix();
 
       this.renderer.setSize(this.sizes.w, this.sizes.h);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    },
-
-    windowScroll() {
-      const offsetY = window.pageYOffset / this.sizes.h;
-      if (!this.material) return;
-      this.material.uniforms.uStrengthY.value = 0.02 + offsetY * 0.8;
     },
 
     render() {
@@ -226,7 +210,6 @@ export default {
 
     clear() {
       window.removeEventListener('resize', this.windowResize);
-      window.removeEventListener('scroll', this.windowScroll);
       this.renderer.dispose();
       this.renderer.domElement = null;
       this.renderer = null;
@@ -236,11 +219,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-background {
+.about-background {
   position: absolute;
   left: -1%;
   top: 0;
   width: 100vw;
-  // height: 100vh;
+  height: 100vh;
 }
 </style>

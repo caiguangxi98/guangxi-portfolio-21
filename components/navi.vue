@@ -8,15 +8,24 @@
         <NuxtLink to="/about">About</NuxtLink>
       </h3>
     </div>
-    <div class="navi-home" @click="goHome"></div>
+    <div ref="naviHomeCirc" class="navi-home hide" @click="goHome"></div>
   </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    window.addEventListener('scroll', this.showNaviHome);
+  },
   methods: {
     goHome() {
       this.$router.push('/');
+    },
+    showNaviHome() {
+      const naviHomeCirc = this.$refs.naviHomeCirc;
+      if (!naviHomeCirc) return;
+      if (window.pageYOffset > 200) naviHomeCirc.classList.remove('hide');
+      if (window.pageYOffset < 200) naviHomeCirc.classList.add('hide');
     },
   },
 };
@@ -26,10 +35,14 @@ export default {
 .Navi {
   z-index: 10;
   mix-blend-mode: difference;
+  .hide {
+    opacity: 0;
+    pointer-events: none;
+  }
   .navi-top {
     position: fixed;
     top: 40px;
-    right: 20px;
+    right: calc(1% + 10px);
 
     .navi-works,
     .navi-about {
@@ -44,13 +57,14 @@ export default {
   .navi-home {
     position: fixed;
     bottom: 35px;
-    right: calc(1% + 14px);
+    right: 1%;
     background: $white;
     width: 14px;
     height: 14px;
     // border: 1px solid $grey-d;
     border-radius: 50%;
-    transition: background 0.2s ease;
+    // opacity: 0;
+    transition: background 0.2s ease, opacity 0.25s ease;
 
     &:hover {
       cursor: pointer;
@@ -67,6 +81,12 @@ export default {
     transition: color 0.2s ease;
     text-decoration: none;
     color: $text;
+  }
+}
+
+@media screen and ($breakPoint4) {
+  .navi-home {
+    display: none;
   }
 }
 </style>

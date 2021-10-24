@@ -75,4 +75,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.home-works {
+  position: relative;
+  width: 98%;
+  margin: 0 auto;
+  top: -60px;
+}
+</style>

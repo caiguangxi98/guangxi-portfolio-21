@@ -34,34 +34,32 @@ export default {
 <style lang="scss" scoped>
 .divider {
   position: relative;
-  width: 100%;
+  width: 98%;
   height: auto;
+  top: -80px;
+  margin: 0 auto 0 auto;
   //margin-top: 150px;
   @include grid-8;
+  text-transform: uppercase;
 
   .title {
     grid-column: 1/3;
-    text-transform: uppercase;
     font-family: $font2;
     line-height: 48px;
     height: auto;
     font-size: 42px;
   }
-
-  .para {
-    color: $grey-d;
-    font-family: $font1;
-    margin-top: 12px;
-    font-size: 16px;
-    line-height: 24px;
-    text-transform: uppercase;
-  }
   .intro {
     position: absolute;
     left: 50%;
     top: -10px;
+    margin-top: 12px;
     transform: translate3d(-50%, 0, 0);
     text-align: center;
+    color: $grey-d;
+    font-family: $font1;
+    font-size: 16px;
+    line-height: 24px;
   }
   .scroll-down {
     grid-column: -2;
@@ -69,6 +67,81 @@ export default {
     justify-self: end;
     path {
       fill: #edfaff;
+    }
+  }
+}
+
+@media screen and ($breakPoint3) {
+  .divider {
+    .title {
+      line-height: 48px;
+      font-size: 36px;
+    }
+    .intro {
+      top: -4px;
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    .scroll-down {
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      line-height: 42px;
+      font-size: 32px;
+    }
+    .intro {
+      position: relative;
+      top: -4px;
+      left: 0;
+      transform: none;
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    .scroll-down {
+      transform: scale3d(0.8, 0.8, 0.8);
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .divider {
+    .title {
+      line-height: 36px;
+      font-size: 28px;
+    }
+    .intro {
+      top: -4px;
+      left: 0;
+      transform: none;
+      margin-top: 2px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+@media screen and ($breakPoint6) {
+  .divider {
+    .title {
+      line-height: 28px;
+      font-size: 24px;
+    }
+    .intro {
+      margin-top: 0px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .scroll-down {
+      position: relative;
+      top: -8px;
     }
   }
 }

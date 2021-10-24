@@ -13,3 +13,13 @@ $font2: 'NeueMontreal-Medium';
 $font3: 'NeueMontreal-Bold';
 $font4: 'SaolDisplay-SemiboldItalic';
 $font5: 'SourceHanSansK-VF';
+
+// break points
+$breakPoint0: max-width + ':' + 2120px; // Big Desktop 1920px -ish
+$breakPoint1: max-width + ':' + 1850px; // Medium Desktop 1600px -ish
+$breakPoint2: max-width + ':' + 1400px; // Smaller + iPad Pro 1366px -ish
+$breakPoint3: max-width + ':' + 1200px; // iPad H
+$breakPoint4: max-width + ':' + 990px; // iPad V
+$breakPoint5: max-width + ':' + 710px; // Phone H
+$breakPoint6: max-width + ':' + 510px; // Phone V
+$breakPoint7: max-width + ':' + 390px; // iPhone 6/7/8/X/Xs V
