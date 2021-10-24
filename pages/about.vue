@@ -5,11 +5,13 @@
         <h2 class="title">INFO</h2>
         <div class="brief">
           <p class="p1">
-            Guangxi Cai is a digital designer and creative technologist who
-            specializes in visual and interaction design.
+            Guangxi Cai is a digital designer and <br />
+            creative technologist who specializes in <br />
+            visual and interaction design.
           </p>
           <p class="p2">
-            He's currently working at Alibaba Cloud, Hangzhou, China.
+            He's currently working at Alibaba Cloud, <br />
+            Hangzhou, China.
           </p>
         </div>
       </div>
@@ -42,7 +44,7 @@
       </div>
       <div class="photo"></div>
     </div>
-    <navi-footer></navi-footer>
+    <navi-footer :is-fixed="true"></navi-footer>
   </div>
 </template>
 
@@ -50,6 +52,9 @@
 import NaviFooter from '~/components/navi-footer.vue';
 export default {
   components: { NaviFooter },
+  data() {
+    return {};
+  },
 };
 </script>
 
@@ -57,7 +62,14 @@ export default {
 .About {
   position: relative;
   left: 0;
+  top: 0;
   width: 100%;
+
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+
+  // height: 100vh;
   .content {
     width: 98%;
     margin: 180px auto 0 auto;
@@ -77,7 +89,8 @@ export default {
       grid-column: 3/-3;
       p {
         font-family: $font1;
-        font-size: 40px;
+        font-size: 32px;
+        line-height: 40px;
       }
       .p1 {
         margin-bottom: 45px;

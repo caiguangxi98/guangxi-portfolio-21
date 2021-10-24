@@ -1,6 +1,6 @@
 <template>
-  <div class="Footer">
-    <div class="footer-top">
+  <div ref="footer" class="Footer">
+    <div ref="footerTop" class="footer-top">
       <h1 class="navi-works">
         <NuxtLink to="/">Works</NuxtLink>
       </h1>
@@ -22,62 +22,82 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    isFixed: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted() {
+    if (!this.isFixed) return;
+    this.$refs.footer.classList.add('fixed');
+    this.$refs.footer.classList.remove('Footer');
+    this.$refs.footerTop.style.display = 'none';
+  },
+};
 </script>
 
 <style lang="scss" scoped>
+.fixed {
+  position: fixed;
+  left: 1%;
+  bottom: 0;
+  width: 98%;
+}
 .Footer {
   position: relative;
   width: 98%;
   height: auto;
   margin: 320px auto 0 auto;
-  .footer-top {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 80px;
-    & h1 {
-      display: inline-block;
-      text-transform: uppercase;
-      & a {
-        text-decoration: none;
-        color: $text;
-        font-family: $font2;
-      }
-    }
-    .slash {
-      font-family: $font4;
-      font-size: 140px;
-    }
-  }
-  .footer-bottom {
-    @include grid-8;
-    color: $grey-d;
-    font-family: $font1;
-    margin-bottom: 14px;
+}
+
+.footer-top {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  & h1 {
+    display: inline-block;
     text-transform: uppercase;
-    .author {
-      grid-column: 1/3;
-      a {
-        font-family: $font2;
-        color: $white;
-      }
-    }
-    .copy {
-      position: absolute;
-      left: 50%;
-      transform: translate3d(-50%, 0, 0);
+    & a {
+      text-decoration: none;
+      color: $text;
+      font-family: $font2;
     }
   }
-  .footer-line {
-    width: 100%;
-    height: 20px;
-    .line {
-      width: 100%;
-      height: 1px;
-      background: $grey-d;
+  .slash {
+    font-family: $font4;
+    font-size: 140px;
+  }
+}
+.footer-bottom {
+  @include grid-8;
+  color: $grey-d;
+  font-family: $font1;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  .author {
+    grid-column: 1/3;
+    a {
+      font-family: $font2;
+      color: $white;
     }
+  }
+  .copy {
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.footer-line {
+  width: 100%;
+  height: 20px;
+  .line {
+    width: 100%;
+    height: 1px;
+    background: $grey-d;
   }
 }
 </style>

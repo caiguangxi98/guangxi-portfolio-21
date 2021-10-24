@@ -195,21 +195,25 @@ export default {
     },
 
     setMouseEffects() {
-      window.addEventListener('resize', () => {
-        this.sizes.w = window.innerWidth;
-        this.sizes.h = window.innerHeight * 0.85;
+      window.addEventListener('resize', this.windowResize);
+      window.addEventListener('scroll', this.windowScroll);
+    },
 
-        this.camera.aspect = this.sizes.w / this.sizes.h;
-        this.camera.updateProjectionMatrix();
+    windowResize() {
+      this.sizes.w = window.innerWidth;
+      this.sizes.h = window.innerHeight * 0.85;
 
-        this.renderer.setSize(this.sizes.w, this.sizes.h);
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      });
-      window.addEventListener('scroll', (e) => {
-        const offsetY = window.pageYOffset / this.sizes.h;
-        if (!this.material) return;
-        this.material.uniforms.uStrengthY.value = 0.02 + offsetY * 0.8;
-      });
+      this.camera.aspect = this.sizes.w / this.sizes.h;
+      this.camera.updateProjectionMatrix();
+
+      this.renderer.setSize(this.sizes.w, this.sizes.h);
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    },
+
+    windowScroll() {
+      const offsetY = window.pageYOffset / this.sizes.h;
+      if (!this.material) return;
+      this.material.uniforms.uStrengthY.value = 0.02 + offsetY * 0.8;
     },
 
     render() {
@@ -220,6 +224,8 @@ export default {
     },
 
     clear() {
+      window.removeEventListener('resize', this.windowResize);
+      window.removeEventListener('scroll', this.windowScroll);
       this.renderer.dispose();
       this.renderer.domElement = null;
       this.renderer = null;
