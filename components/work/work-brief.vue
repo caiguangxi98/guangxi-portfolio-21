@@ -56,8 +56,8 @@ export default {
 <style lang="scss" scoped>
 .work-brief {
   position: relative;
-  width: 100%;
-  margin-top: 90px;
+  width: 98%;
+  margin: 90px auto 0 auto;
   display: flex;
   font-family: $font1;
 
@@ -104,6 +104,7 @@ export default {
     .number {
       position: absolute;
       right: 0;
+      top: 5px;
       font-family: $font4;
       text-transform: uppercase;
       color: $grey-l;
@@ -142,6 +143,126 @@ export default {
       letter-spacing: 0.2px;
       line-height: 30px;
       color: $grey-l;
+    }
+  }
+}
+
+@media screen and ($breakPoint1) {
+  .work-brief {
+    .project-details {
+      margin-bottom: 80px;
+
+      h3 {
+        margin-bottom: 60px;
+      }
+      p {
+        margin-left: 60px;
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+
+    .role {
+      margin-bottom: 140px;
+      h3 {
+        margin-bottom: 60px;
+      }
+      p {
+        margin-left: 60px;
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint3) {
+  .work-brief {
+    .meta {
+      margin-bottom: 60px;
+    }
+    .project-details {
+      margin-bottom: 60px;
+
+      h3 {
+        margin-bottom: 40px;
+      }
+      p {
+        margin-left: 60px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .role {
+      margin-bottom: 120px;
+      h3 {
+        margin-bottom: 40px;
+      }
+      p {
+        margin-left: 60px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint4) {
+  .work-brief {
+    .meta {
+      margin-bottom: 40px;
+
+      .company {
+        margin-right: 20px;
+      }
+
+      .slash {
+        margin-right: 20px;
+      }
+
+      .number {
+        top: 5px;
+      }
+    }
+    .project-details {
+      margin-bottom: 40px;
+
+      h3 {
+        margin-bottom: 40px;
+      }
+      p {
+        margin-left: 40px;
+      }
+    }
+
+    .role {
+      margin-bottom: 80px;
+      h3 {
+        margin-bottom: 40px;
+      }
+      p {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .work-brief {
+    margin: 60px auto 0 auto;
+
+    flex-direction: column;
+    .title {
+      margin-bottom: 40px;
+      font-size: 40px;
+    }
+  }
+}
+@media screen and ($breakPoint6) {
+  .work-brief {
+    margin: 40px auto 0 auto;
+
+    .title {
+      margin-bottom: 20px;
+      font-size: 36px;
     }
   }
 }

@@ -82,6 +82,8 @@ h5 {
     font-size: 80px;
   }
 }
+@media screen and ($breakPoint3) {
+}
 @media screen and ($breakPoint4) {
   h1 {
     font-size: 60px;
@@ -95,6 +97,9 @@ h5 {
 @media screen and ($breakPoint6) {
   h1 {
     font-size: 30px;
+  }
+  h3 {
+    font-size: 18px;
   }
 }
 
