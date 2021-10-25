@@ -30,16 +30,15 @@ export default {
 <style lang="scss" scoped>
 .next {
   position: relative;
-  width: 428px;
+  width: 346px;
   left: 50%;
-  margin-top: 320px;
+  margin-top: 240px;
   transform: translate3d(-50%, 0, 0);
   color: $grey-l;
 
   .button {
     position: relative;
     width: 100%;
-
     text-transform: uppercase;
     .t {
       display: inline-block;
@@ -47,15 +46,16 @@ export default {
     }
     .n {
       position: relative;
-      top: -20px;
+      top: -16px;
       display: inline-block;
       margin-left: 14px;
       font-family: $font4;
     }
   }
   .icon {
-    position: relative;
-    left: 45%;
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
     margin-top: 20px;
     & svg {
       fill: $grey-l;
@@ -72,6 +72,48 @@ export default {
     transition: color 0.2s ease;
     text-decoration: none;
     color: $grey-l;
+  }
+}
+
+@media screen and ($breakPoint3) {
+  .next {
+    width: 310px;
+    margin-top: 180px;
+    .button {
+      .t {
+        font-size: 36px;
+      }
+      .n {
+        top: -15px;
+        font-size: 14px;
+      }
+    }
+    .icon {
+      & svg {
+        transform: scale3d(0.9, 0.9, 0.9);
+      }
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .next {
+    width: 226px;
+    margin-top: 160px;
+    .button {
+      .t {
+        font-size: 25px;
+      }
+      .n {
+        top: -10px;
+        margin-left: 14px;
+        font-size: 12px;
+      }
+    }
+    .icon {
+      & svg {
+        transform: scale3d(0.8, 0.8, 0.8);
+      }
+    }
   }
 }
 </style>

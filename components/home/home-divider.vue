@@ -37,7 +37,7 @@ export default {
   width: 98%;
   height: auto;
   top: -80px;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 200px auto;
   //margin-top: 150px;
   @include grid-8;
   text-transform: uppercase;
@@ -88,48 +88,46 @@ export default {
     }
   }
 }
+@media screen and ($breakPoint4) {
+  .divider {
+    margin-bottom: 120px;
+  }
+}
 @media screen and ($breakPoint5) {
   .divider {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 40px;
+    top: -160px;
+
     .title {
-      line-height: 42px;
-      font-size: 32px;
+      // line-height: 42px;
+      // font-size: 32px;
+      line-height: 36px;
+      font-size: 28px;
     }
     .intro {
       position: relative;
       top: -4px;
       left: 0;
       transform: none;
-      margin-top: 12px;
+      margin-top: 0;
       font-size: 14px;
       line-height: 18px;
     }
     .scroll-down {
+      position: relative;
+      top: -10px;
       transform: scale3d(0.8, 0.8, 0.8);
-    }
-  }
-}
-@media screen and ($breakPoint5) {
-  .divider {
-    .title {
-      line-height: 36px;
-      font-size: 28px;
-    }
-    .intro {
-      top: -4px;
-      left: 0;
-      transform: none;
-      margin-top: 2px;
-      font-size: 14px;
-      line-height: 18px;
     }
   }
 }
 @media screen and ($breakPoint6) {
   .divider {
+    margin-bottom: 0;
+
     .title {
       line-height: 28px;
       font-size: 24px;

@@ -10,9 +10,7 @@
       <div class="work-video"></div>
       <div class="work-video"></div>
 
-      <div class="info info-01">
-        <p>{{ brief.info01 }}</p>
-      </div>
+      <work-info :info="info01"></work-info>
 
       <div class="gallery">
         <work-image
@@ -57,13 +55,9 @@ export default {
         details:
           "'Real 3D' is a 3D architecture diagram product that efficiently visualizes the alibaba cloud products in real-time. It is initiated by Alibaba Cloud Design on top of WebGL technology.",
         role: 'Visual Design <br />Motion Graphics <br /> 3D Rendering',
-        info01:
-          'The product is meant to offer a rapid 3D build of visualizations for Alibaba Cloud products. I created three short videos for Real 3D to illustrate its brand image.',
-        thanks: {
-          names: 'Qiaoqiao Tang <br />Genle Zhu <br />Ruomu Liu',
-          roles: 'Sketches & Concept <br />3D Design <br />Animation',
-        },
       },
+      info01:
+        'The product is meant to offer a rapid 3D build of visualizations for Alibaba Cloud products. I created three short videos for Real 3D to illustrate its brand image.',
       gallery01: [
         {
           id: '01',
@@ -153,24 +147,17 @@ export default {
       margin-bottom: 20px;
     }
 
-    .info-01 {
-      position: relative;
-      width: 50%;
-      left: 50%;
-      margin: 160px 0;
-
-      p {
-        margin-left: 60px;
-        font-size: 25px;
-        letter-spacing: 0.2px;
-        line-height: 30px;
-        color: $grey-l;
-      }
-    }
-
     .gallery {
       position: relative;
       width: 100%;
+    }
+  }
+}
+
+@media screen and ($breakPoint5) {
+  .Work {
+    .content {
+      width: 95%;
     }
   }
 }

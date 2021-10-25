@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .work-brief {
   position: relative;
-  width: 98%;
+  width: 100%;
   margin: 90px auto 0 auto;
   display: flex;
   font-family: $font1;
@@ -189,25 +189,29 @@ export default {
       p {
         margin-left: 60px;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 20px;
       }
     }
 
     .role {
-      margin-bottom: 120px;
+      margin-bottom: 100px;
       h3 {
         margin-bottom: 40px;
       }
       p {
         margin-left: 60px;
         font-size: 16px;
-        line-height: 24px;
+        line-height: 20px;
       }
     }
   }
 }
 @media screen and ($breakPoint4) {
   .work-brief {
+    .info-main {
+      flex: 1.5;
+      margin-top: 20px;
+    }
     .meta {
       margin-bottom: 40px;
 
@@ -247,21 +251,24 @@ export default {
 }
 @media screen and ($breakPoint5) {
   .work-brief {
-    margin: 60px auto 0 auto;
+    margin: 40px auto 0 auto;
 
     flex-direction: column;
     .title {
-      margin-bottom: 40px;
+      margin-bottom: 10px;
       font-size: 40px;
+    }
+    .role {
+      margin-bottom: 60px;
     }
   }
 }
 @media screen and ($breakPoint6) {
   .work-brief {
-    margin: 40px auto 0 auto;
+    margin: 30px auto 0 auto;
 
     .title {
-      margin-bottom: 20px;
+      margin-bottom: 0;
       font-size: 36px;
     }
   }

@@ -42,7 +42,7 @@ export default {
   .navi-top {
     position: fixed;
     top: 40px;
-    right: calc(1% + 10px);
+    right: 1%;
 
     .navi-works,
     .navi-about {
@@ -87,6 +87,13 @@ export default {
 @media screen and ($breakPoint4) {
   .navi-home {
     display: none;
+  }
+}
+@media screen and ($breakPoint5) {
+  .Navi {
+    .navi-top {
+      right: 2.5%;
+    }
   }
 }
 </style>

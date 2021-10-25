@@ -51,7 +51,7 @@ export default {
     const workId = `work-${this.id}`;
     const work = this.$refs[workId];
 
-    work.style.width = `${this.width}%`;
+    // work.style.width = `${this.width}%`;
 
     if (this.float === 'left') {
       work.classList.add('left');
@@ -70,19 +70,22 @@ export default {
 .work {
   position: relative;
   height: auto;
-  margin-top: 200px;
+  // margin-top: 200px;
   margin-bottom: 80px;
 
   &.left {
     left: 0;
+    width: 68%;
   }
 
   &.right {
     left: 50%;
+    width: 50%;
   }
 
   &.mid {
     left: 50%;
+    width: 50%;
     transform: translate3d(-50%, 0, 0);
   }
 
@@ -104,6 +107,7 @@ export default {
     .year {
       position: relative;
       margin-left: 80px;
+      font-family: $font1;
       top: -2px;
     }
     .number {
@@ -118,6 +122,77 @@ export default {
     & img {
       width: 100%;
       object-fit: cover;
+    }
+  }
+}
+@media screen and ($breakPoint4) {
+  .work {
+    position: relative;
+    height: auto;
+    margin-bottom: 40px;
+    .intro {
+      position: relative;
+      width: 100%;
+      display: flex;
+
+      .title {
+        flex: 1;
+        top: -2px;
+      }
+      .year {
+        flex: 1;
+        position: relative;
+        margin-left: 0;
+        top: 0px;
+        text-align: center;
+      }
+      .number {
+        flex: 1;
+        position: relative;
+        right: 0;
+        text-align: right;
+        text-transform: uppercase;
+        top: 0px;
+      }
+    }
+
+    &.left {
+      left: 0;
+      width: 100%;
+    }
+
+    &.right {
+      left: 0;
+      width: 100%;
+    }
+
+    &.mid {
+      left: 0;
+      width: 100%;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .work {
+    position: relative;
+    height: auto;
+    margin-bottom: 36px;
+    .intro {
+      .title {
+        font-size: 20px;
+      }
+    }
+  }
+}
+@media screen and ($breakPoint6) {
+  .work {
+    margin-bottom: 30px;
+    .intro {
+      margin-top: 10px;
+      .title {
+        font-size: 18px;
+      }
     }
   }
 }

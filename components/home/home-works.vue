@@ -82,4 +82,9 @@ export default {
   margin: 0 auto;
   top: -60px;
 }
+@media screen and ($breakPoint5) {
+  .home-works {
+    width: 95%;
+  }
+}
 </style>

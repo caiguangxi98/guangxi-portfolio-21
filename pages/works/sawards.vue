@@ -8,15 +8,11 @@
 
       <div class="work-video"></div>
 
-      <div class="info info-01">
-        <p>{{ brief.info01 }}</p>
-      </div>
+      <work-info :info="info01"></work-info>
 
       <work-image :img="styleframes" :observer="imgObserver"></work-image>
 
-      <div class="info info-02">
-        <p>{{ brief.info02 }}</p>
-      </div>
+      <work-info :info="info02"></work-info>
 
       <div class="gallery">
         <work-image
@@ -27,9 +23,7 @@
         ></work-image>
       </div>
 
-      <div class="info info-03">
-        <p v-html="brief.info03"></p>
-      </div>
+      <work-info :info="info03"></work-info>
 
       <div class="gallery">
         <work-image
@@ -73,12 +67,12 @@ export default {
         details:
           'S Awards is a content creation award created by Alibaba Design Marketing, debuted in 2021. <br><br> The award aims to reward teams and individuals who create high quality contents, and engage more people to devote themselves to content creation, and voice themselves out. ',
         role: 'Visual Design <br />Motion Graphics <br /> 3D Rendering',
-        info01: 'I created a concept film combining the shape of the trophy. ',
-        info02:
-          'The S in the name of the award is a semi-open proposition, which can generate infinite associations. I expanded it to Spread, Spark, Spine and created the key visual of the award.',
-        info03:
-          'The scope of the award includes 43 teams in the ecosystem of Alibaba Design and more than 300 published articles in the past years. <br><br> We took this opportunity to create a series of data visualization posters that were given as gifts to distinguished design teams and individual designers.',
       },
+      info01: 'I created a concept film combining the shape of the trophy. ',
+      info02:
+        'The S in the name of the award is a semi-open proposition, which can generate infinite associations. I expanded it to Spread, Spark, Spine and created the key visual of the award.',
+      info03:
+        'The scope of the award includes 43 teams in the ecosystem of Alibaba Design and more than 300 published articles in the past years. <br><br> We took this opportunity to create a series of data visualization posters that were given as gifts to distinguished design teams and individual designers.',
       styleframes: {
         id: '01',
         lazy: '/image/sawards/01-lazy.png',
@@ -183,24 +177,17 @@ export default {
       background-color: $grey-d;
     }
 
-    .info {
-      position: relative;
-      width: 50%;
-      left: 50%;
-      margin: 160px 0;
-
-      p {
-        margin-left: 60px;
-        font-size: 25px;
-        letter-spacing: 0.2px;
-        line-height: 30px;
-        color: $grey-l;
-      }
-    }
-
     .gallery {
       position: relative;
       width: 100%;
+    }
+  }
+}
+
+@media screen and ($breakPoint5) {
+  .Work {
+    .content {
+      width: 95%;
     }
   }
 }

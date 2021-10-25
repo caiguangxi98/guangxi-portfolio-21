@@ -41,15 +41,15 @@ export default {
 <style lang="scss" scoped>
 .fixed {
   position: fixed;
+  width: 98%;
   left: 1%;
   bottom: 0;
-  width: 98%;
 }
 .Footer {
   position: relative;
   width: 98%;
   height: auto;
-  margin: 320px auto 0 auto;
+  margin: 240px auto 0 auto;
 }
 
 .footer-top {
@@ -122,6 +122,9 @@ export default {
   }
 }
 @media screen and ($breakPoint3) {
+  .Footer {
+    margin-top: 180px;
+  }
   .footer-bottom {
     @include grid-4;
     .author {
@@ -162,6 +165,8 @@ export default {
 }
 @media screen and ($breakPoint5) {
   .Footer {
+    width: 95%;
+    margin-top: 160px;
     .footer-top {
       margin-bottom: 20px;
       .slash {
@@ -173,6 +178,8 @@ export default {
 }
 @media screen and ($breakPoint6) {
   .Footer {
+    margin-top: 120px;
+
     .footer-top {
       margin-bottom: 20px;
       .slash {

@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 .prev {
   position: relative;
-  width: 428px;
+  width: 340px;
   left: 50%;
   margin-top: 320px;
   transform: translate3d(-50%, 0, 0);
@@ -72,6 +72,48 @@ export default {
     transition: color 0.2s ease;
     text-decoration: none;
     color: $grey-l;
+  }
+}
+
+@media screen and ($breakPoint3) {
+  .prev {
+    width: 308px;
+    margin-top: 180px;
+    .button {
+      .t {
+        font-size: 36px;
+      }
+      .n {
+        top: -15px;
+        font-size: 14px;
+      }
+    }
+    .icon {
+      & svg {
+        transform: scale3d(0.9, 0.9, 0.9);
+      }
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .prev {
+    width: 224px;
+    margin-top: 160px;
+    .button {
+      .t {
+        font-size: 25px;
+      }
+      .n {
+        top: -10px;
+        margin-left: 14px;
+        font-size: 12px;
+      }
+    }
+    .icon {
+      & svg {
+        transform: scale3d(0.8, 0.8, 0.8);
+      }
+    }
   }
 }
 </style>

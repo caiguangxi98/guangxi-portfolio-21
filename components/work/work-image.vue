@@ -45,4 +45,9 @@ export default {
     }
   }
 }
+@media screen and ($breakPoint5) {
+  .image-box {
+    margin-bottom: 10px;
+  }
+}
 </style>

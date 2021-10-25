@@ -184,7 +184,110 @@ export default {
     }
 
     .threed {
-      bottom: 8%;
+      bottom: 10%;
+    }
+  }
+}
+
+@media screen and ($breakPoint3) {
+  .title {
+    @include grid-6;
+
+    .year {
+      width: 100%;
+      @include grid-6;
+
+      .start {
+        grid-column: 1;
+        .t2 {
+          margin-left: 20px;
+        }
+      }
+
+      .end {
+        grid-column: 5;
+      }
+    }
+    .deco {
+      .threed {
+        bottom: calc(10% - 5px);
+      }
+    }
+  }
+}
+@media screen and ($breakPoint4) {
+  .title {
+    .year {
+      .name-eng {
+        font-family: $font2;
+        .t2 {
+          margin-left: 20px;
+        }
+      }
+      .name-kor {
+        font-family: $font5;
+        justify-self: end;
+        .t2 {
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .title {
+    width: 95%;
+    .year {
+      @include grid-4;
+      .name-eng {
+        grid-column: 2;
+        position: relative;
+        left: -40px;
+        .t2 {
+          margin-left: 20px;
+        }
+      }
+      .end {
+        grid-column: 3;
+        justify-self: end;
+      }
+      .name-kor {
+        grid-column: 4;
+        justify-self: end;
+        .t2 {
+          margin-left: 50px;
+        }
+      }
+    }
+    .deco {
+      display: none;
+    }
+  }
+}
+@media screen and ($breakPoint5) {
+  .title {
+    .year {
+      display: flex;
+      justify-content: space-between;
+      .start {
+        display: none;
+      }
+      .name-eng {
+        position: relative;
+        left: 0;
+        .t2 {
+          margin-left: 40px;
+        }
+      }
+      .end {
+        display: none;
+      }
+      .name-kor {
+        justify-self: end;
+        .t2 {
+          margin-left: 80px;
+        }
+      }
     }
   }
 }

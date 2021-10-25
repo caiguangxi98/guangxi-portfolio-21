@@ -8,9 +8,7 @@
 
       <div class="work-video"></div>
 
-      <div class="info info-01">
-        <p>{{ brief.info01 }}</p>
-      </div>
+      <work-info :info="info01"></work-info>
 
       <div class="gallery">
         <work-image
@@ -55,9 +53,9 @@ export default {
         details:
           "PANGU is a new media interactive installation, which uses graphic algorithms to generate poetic digital landscapes through the camera's perception of the environment. <br><br> PANGU constructs an interactive scene, and the viewer's every move in the space where the installation is located will affect the changes in the generative visual effects. Experimental audio-visual can immerse the audience and make them feel the harmonious beauty coexisting with the machine consciousness.",
         role: 'Visual Design <br>Interactive Design <br>Creative Coding',
-        info01:
-          'I created real-time rendering GPGPU Particles to enhance its visual tensions. Noise and post-process were run-time shaded with GLSL. ',
       },
+      info01:
+        'I created real-time rendering GPGPU Particles to enhance its visual tensions. Noise and post-process were run-time shaded with GLSL. ',
       gallery: [
         {
           id: '01',
@@ -145,24 +143,17 @@ export default {
       background-color: $grey-d;
     }
 
-    .info {
-      position: relative;
-      width: 50%;
-      left: 50%;
-      margin: 160px 0;
-
-      p {
-        margin-left: 60px;
-        font-size: 25px;
-        letter-spacing: 0.2px;
-        line-height: 30px;
-        color: $grey-l;
-      }
-    }
-
     .gallery {
       position: relative;
       width: 100%;
+    }
+  }
+}
+
+@media screen and ($breakPoint5) {
+  .Work {
+    .content {
+      width: 95%;
     }
   }
 }
