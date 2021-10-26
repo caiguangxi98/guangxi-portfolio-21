@@ -213,6 +213,7 @@ export default {
 
     windowScroll() {
       const offsetY = window.pageYOffset / this.sizes.h;
+      // console.log(offsetY);
       if (!this.material) return;
       this.material.uniforms.uStrengthY.value = 0.02 + offsetY * 0.8;
     },
