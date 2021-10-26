@@ -1,5 +1,8 @@
 <template>
   <div class="Navi">
+    <h3 class="navi-name">
+      <NuxtLink to="/">GUANGXI CAI</NuxtLink>
+    </h3>
     <div class="navi-top">
       <h3 class="navi-works">
         <NuxtLink to="/">Works</NuxtLink>
@@ -39,6 +42,13 @@ export default {
     opacity: 0;
     pointer-events: none;
   }
+  .navi-name {
+    position: fixed;
+    top: 40px;
+    left: 1%;
+    font-family: $font2;
+    color: $white;
+  }
   .navi-top {
     position: fixed;
     top: 40px;
@@ -47,7 +57,7 @@ export default {
     .navi-works,
     .navi-about {
       color: $text;
-      font-family: $font1;
+      font-family: $font2;
       display: inline-block;
     }
     .navi-works {
@@ -71,14 +81,14 @@ export default {
       background: $grey-d;
     }
   }
-  a.nuxt-link-exact-active {
-    color: $grey-d;
-  }
+  // a.nuxt-link-exact-active {
+  //   color: $grey-d;
+  // }
   a:hover {
     color: $grey-d;
   }
   a {
-    transition: color 0.2s ease;
+    transition: color 0.25s ease;
     text-decoration: none;
     color: $text;
   }
@@ -91,9 +101,15 @@ export default {
 }
 @media screen and ($breakPoint5) {
   .Navi {
+    .navi-name {
+      left: 2.5%;
+    }
     .navi-top {
       right: 2.5%;
     }
+    // .navi-home {
+    //   right: 2.5%;
+    // }
   }
 }
 </style>

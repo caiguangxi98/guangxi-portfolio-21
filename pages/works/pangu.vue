@@ -120,16 +120,6 @@ export default {
   height: auto;
   padding-top: 140px;
 
-  .cover {
-    position: relative;
-    width: 100%;
-
-    & img {
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
   .content {
     position: relative;
     width: 98%;
@@ -150,11 +140,21 @@ export default {
   }
 }
 
+@media screen and ($breakPoint4) {
+  .Work {
+    padding-top: 120px;
+  }
+}
 @media screen and ($breakPoint5) {
   .Work {
     .content {
       width: 95%;
     }
+  }
+}
+@media screen and ($breakPoint6) {
+  .Work {
+    padding-top: 100px;
   }
 }
 </style>

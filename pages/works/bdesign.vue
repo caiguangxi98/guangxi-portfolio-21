@@ -199,6 +199,7 @@ export default {
         letter-spacing: 0.2px;
         line-height: 30px;
         color: $grey-l;
+        font-family: $font1;
 
         div {
           display: inline-block;
@@ -230,10 +231,6 @@ export default {
 @media screen and ($breakPoint1) {
   .Work {
     .content {
-      .info p {
-        font-size: 20px;
-      }
-
       .thanks {
         h3 {
           font-family: $font2;
@@ -302,6 +299,8 @@ export default {
 }
 @media screen and ($breakPoint4) {
   .Work {
+    padding-top: 120px;
+
     .content {
       .thanks {
         width: 60%;
@@ -345,6 +344,7 @@ export default {
 }
 @media screen and ($breakPoint6) {
   .Work {
+    padding-top: 100px;
     .content {
       .thanks {
         width: 100%;

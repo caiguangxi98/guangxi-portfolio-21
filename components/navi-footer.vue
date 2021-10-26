@@ -181,7 +181,7 @@ export default {
     margin-top: 120px;
 
     .footer-top {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       .slash {
         top: -4px;
         font-size: 40px;
@@ -191,6 +191,7 @@ export default {
   .footer-bottom {
     .author {
       font-size: 12px;
+      margin-bottom: 20px;
     }
     .copy {
       font-size: 12px;

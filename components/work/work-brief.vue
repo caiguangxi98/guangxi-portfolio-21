@@ -256,7 +256,7 @@ export default {
     flex-direction: column;
     .title {
       margin-bottom: 10px;
-      font-size: 40px;
+      font-size: 36px;
     }
     .role {
       margin-bottom: 60px;
@@ -269,7 +269,7 @@ export default {
 
     .title {
       margin-bottom: 0;
-      font-size: 36px;
+      font-size: 32px;
     }
   }
 }

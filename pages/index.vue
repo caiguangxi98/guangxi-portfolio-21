@@ -24,7 +24,8 @@ export default {
   position: relative;
   left: 0;
   width: 100%;
-  height: 1px;
+  height: auto;
   margin: 0px auto;
+  overflow-x: hidden;
 }
 </style>

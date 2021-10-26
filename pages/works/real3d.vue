@@ -154,11 +154,21 @@ export default {
   }
 }
 
+@media screen and ($breakPoint4) {
+  .Work {
+    padding-top: 120px;
+  }
+}
 @media screen and ($breakPoint5) {
   .Work {
     .content {
       width: 95%;
     }
+  }
+}
+@media screen and ($breakPoint6) {
+  .Work {
+    padding-top: 100px;
   }
 }
 </style>

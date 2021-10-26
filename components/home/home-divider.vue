@@ -101,12 +101,13 @@ export default {
     align-items: center;
     margin-bottom: 40px;
     top: -160px;
+    width: 100%;
+    height: 140px;
 
     .title {
-      // line-height: 42px;
-      // font-size: 32px;
       line-height: 36px;
       font-size: 28px;
+      margin-bottom: 20px;
     }
     .intro {
       position: relative;
@@ -114,12 +115,10 @@ export default {
       left: 0;
       transform: none;
       margin-top: 0;
-      font-size: 14px;
-      line-height: 18px;
     }
     .scroll-down {
       position: relative;
-      top: -10px;
+      top: 0px;
       transform: scale3d(0.8, 0.8, 0.8);
     }
   }
@@ -139,7 +138,7 @@ export default {
     }
     .scroll-down {
       position: relative;
-      top: -8px;
+      top: 12px;
     }
   }
 }

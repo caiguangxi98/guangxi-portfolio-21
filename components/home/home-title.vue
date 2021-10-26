@@ -266,7 +266,11 @@ export default {
 }
 @media screen and ($breakPoint5) {
   .title {
+    .slash {
+      top: 45%;
+    }
     .year {
+      top: 45%;
       display: flex;
       justify-content: space-between;
       .start {

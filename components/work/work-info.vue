@@ -25,6 +25,7 @@ export default {
   margin: 160px 0;
 
   & p {
+    font-family: $font1;
     margin-left: 60px;
     font-size: 25px;
     letter-spacing: 0.2px;

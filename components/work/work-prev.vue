@@ -39,7 +39,6 @@ export default {
   .button {
     position: relative;
     width: 100%;
-
     text-transform: uppercase;
     .t {
       display: inline-block;
@@ -54,8 +53,9 @@ export default {
     }
   }
   .icon {
-    position: relative;
-    left: 45%;
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
     margin-top: 20px;
     & svg {
       fill: $grey-l;

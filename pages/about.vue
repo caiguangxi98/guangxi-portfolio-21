@@ -74,7 +74,8 @@ export default {
 
   margin: 0;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   // height: 100vh;
   .content {
@@ -123,6 +124,7 @@ export default {
       .linkedin {
         @include grid-8;
         margin-bottom: 20px;
+        font-family: $font1;
 
         .s {
           grid-column: 3/-1;
@@ -185,6 +187,9 @@ export default {
 
 @media screen and ($breakPoint4) {
   .About {
+    .navi-home {
+      display: none;
+    }
     .info {
       @include grid-4;
       .title {
@@ -224,8 +229,19 @@ export default {
   }
 }
 
+@media screen and ($breakPoint5) {
+  .About {
+    .content {
+      width: 95%;
+      margin-top: 160px;
+    }
+  }
+}
 @media screen and ($breakPoint6) {
   .About {
+    .content {
+      margin-top: 140px;
+    }
     .info {
       @include grid-4;
       .title {
