@@ -141,4 +141,14 @@ export default {
     }
   }
 }
+@media screen and ($breakPoint6) {
+  .Navi {
+    .navi-name {
+      top: 45px;
+    }
+    .navi-top {
+      right: 2.5%;
+    }
+  }
+}
 </style>
