@@ -66,7 +66,7 @@ export default {
     align-self: center;
     justify-self: end;
     path {
-      fill: #edfaff;
+      fill: $text;
     }
   }
 }

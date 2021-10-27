@@ -55,9 +55,8 @@ export default {
         0.01,
         1000
       );
-      this.camera.position.x = -0.64;
-      this.camera.position.y = 0.1;
-      this.camera.position.z = 1;
+      this.setCamPos();
+      this.windowResize();
     },
 
     setMesh() {
@@ -65,6 +64,7 @@ export default {
       this.material = new THREE.ShaderMaterial({
         uniforms: {
           time: { value: 0 },
+          uColorMult: { value: 1 },
           tex: {
             value: new THREE.TextureLoader().load('/me.png'),
           },
@@ -73,6 +73,7 @@ export default {
 					uniform float time;
 					varying vec2 vUv;
 					varying float vWave;
+          varying float vPosZ;
 
 					//	Simplex 3D Noise
           //	by Ian McEwan, Ashima Arts
@@ -162,13 +163,16 @@ export default {
 						gl_Position = projectionMatrix * mvPosition;
 
 						vUv = uv;
+            vPosZ = pos.z;
 					}
 				`,
         fragmentShader: `
           uniform float time;
+          uniform float uColorMult;
           uniform sampler2D tex;
           varying vec2 vUv;
           varying float vWave;
+          varying float vPosZ;
 
 					void main() {
 						float wave = vWave * 0.1;
@@ -176,6 +180,8 @@ export default {
 						float g = texture2D(tex, vUv).g;
 						float b = texture2D(tex, vUv).b;
 						vec3 tex = vec3(r, g, b);
+            tex *= vWave * 3.0 + 0.5;
+            tex *= uColorMult;
 						gl_FragColor = vec4(tex, 1.0);
 					}
 				`,
@@ -199,10 +205,33 @@ export default {
 
       this.renderer.setSize(this.sizes.w, this.sizes.h);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      if (this.sizes.w < 1200) {
+        this.moveMeshToCenter();
+      } else {
+        this.setCamPos();
+      }
+    },
+
+    moveMeshToCenter() {
+      this.camera.position.x = -0.01;
+      this.camera.position.z = 1.4;
+    },
+
+    setCamPos() {
+      this.camera.position.x = -0.64;
+      this.camera.position.y = 0.1;
+      this.camera.position.z = 1;
     },
 
     render() {
       this.material.uniforms.time.value += 0.005;
+
+      if (this.sizes.w < 1200) {
+        this.material.uniforms.uColorMult.value = 0.8;
+      } else {
+        this.material.uniforms.uColorMult.value = 1;
+      }
 
       this.renderer && this.renderer.render(this.scene, this.camera);
       requestAnimationFrame(this.render);
@@ -225,5 +254,7 @@ export default {
   top: 0;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 </style>

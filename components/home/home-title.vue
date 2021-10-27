@@ -7,7 +7,11 @@
       <div class="line l4">technologist</div>
     </div>
 
-    <div class="slash">/</div>
+    <svg width="150" height="216" fill="none" class="slash">
+      <path
+        d="M149.331 1.43999L2.45094 215.76L0.290937 214.32L147.171 -5.72205e-06L149.331 1.43999Z"
+      />
+    </svg>
 
     <div class="year">
       <div class="char start">
@@ -119,10 +123,10 @@ export default {
     position: absolute;
     left: 50%;
     top: 50%;
-    font-family: $font4;
-    font-size: 240px;
-    color: $blue;
     transform: translate3d(-50%, -50%, 0);
+    path {
+      fill: $blue;
+    }
   }
 
   .year {
@@ -268,6 +272,7 @@ export default {
   .title {
     .slash {
       top: 45%;
+      transform: translate3d(-50%, -50%, 0), scale3d(0.8, 0.8, 0.8);
     }
     .year {
       top: 45%;

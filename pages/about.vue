@@ -77,7 +77,6 @@ export default {
   overflow-x: hidden;
   overflow-y: hidden;
 
-  // height: 100vh;
   .content {
     width: 98%;
     margin: 180px auto 0 auto;

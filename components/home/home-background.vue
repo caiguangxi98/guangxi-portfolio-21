@@ -4,6 +4,7 @@
 
 <script>
 import * as THREE from 'three';
+import { gsap } from 'gsap/all';
 
 export default {
   data() {
@@ -20,6 +21,7 @@ export default {
         w: 0,
         h: 0,
       },
+      tl: null,
     };
   },
   mounted() {
@@ -31,6 +33,7 @@ export default {
     this.setMesh();
     this.setMouseEffects();
     this.render();
+    this.setMeshOpacity();
   },
   destroyed() {
     this.clear();
@@ -68,6 +71,7 @@ export default {
           uDisplaceY: { value: 2 },
           uStrengthX: { value: 0.0 },
           uStrengthY: { value: 0.02 },
+          uOpacity: { value: 0.0 },
           tex: {
             value: new THREE.TextureLoader().load('/bg.png'),
           },
@@ -88,6 +92,7 @@ export default {
           uniform float uDisplaceY;
           uniform float uStrengthX;
           uniform float uStrengthY;
+          uniform float uOpacity;
           uniform sampler2D tex;
           varying vec2 vUv;
 
@@ -183,7 +188,7 @@ export default {
             outgo *= 1.8;
 
 						vec4 tex = texture2D(tex, newUv);
-            float a = tex.w;
+            float a = tex.w * uOpacity;
 						gl_FragColor = vec4(outgo, a);
 					}
 				`,
@@ -225,12 +230,34 @@ export default {
       requestAnimationFrame(this.render);
     },
 
+    setMeshOpacity() {
+      console.log('opacity set');
+      this.tl = gsap.timeline();
+      this.tl
+        .to(this.material.uniforms.uOpacity, 1, {
+          value: 1,
+          delay: 0.4,
+          ease: 'power4.out',
+        })
+        .from(
+          this.material.uniforms.uStrengthY,
+          2.4,
+          {
+            value: 0.6,
+            ease: 'power4.out',
+          },
+          '<'
+        );
+    },
+
     clear() {
       window.removeEventListener('resize', this.windowResize);
       window.removeEventListener('scroll', this.windowScroll);
       this.renderer.dispose();
       this.renderer.domElement = null;
       this.renderer = null;
+      this.tl.kill();
+      this.tl = null;
     },
   },
 };
