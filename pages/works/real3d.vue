@@ -6,9 +6,9 @@
       <!-- eslint-disable vue/no-v-html -->
       <work-brief v-bind="brief"></work-brief>
 
-      <div class="work-video"></div>
-      <div class="work-video"></div>
-      <div class="work-video"></div>
+      <work-video :video="video01"></work-video>
+      <work-video :video="video02"></work-video>
+      <work-video :video="video03"></work-video>
 
       <work-info :info="info01"></work-info>
 
@@ -34,8 +34,9 @@ import NaviFooter from '~/components/navi-footer.vue';
 import WorkBrief from '~/components/work/work-brief.vue';
 import WorkImage from '~/components/work/work-image.vue';
 import WorkNext from '~/components/work/work-next.vue';
+import WorkVideo from '~/components/work/work-video.vue';
 export default {
-  components: { WorkBrief, NaviFooter, WorkImage, WorkNext },
+  components: { WorkBrief, NaviFooter, WorkImage, WorkNext, WorkVideo },
   data() {
     return {
       cover: {
@@ -46,6 +47,18 @@ export default {
         id: '04',
         project: 'Neural-Symbolic Lab',
         link: 'nslab',
+      },
+      video01: {
+        id: '639559088',
+        ratio: '2.35-1',
+      },
+      video02: {
+        id: '639560513',
+        ratio: '3-1',
+      },
+      video03: {
+        id: '639556678',
+        ratio: '16-9',
       },
       brief: {
         title: 'Real 3D',
@@ -88,7 +101,7 @@ export default {
     this.imgObserver = new IntersectionObserver(this.loadImg, {
       root: null,
       threshold: 0,
-      rootMargin: '-60px',
+      rootMargin: '-20px',
     });
   },
   mounted() {},
@@ -138,14 +151,6 @@ export default {
     width: 98%;
     height: auto;
     margin: 0 auto;
-
-    .work-video {
-      position: relative;
-      width: 100%;
-      height: 300px;
-      background-color: $grey-d;
-      margin-bottom: 20px;
-    }
 
     .gallery {
       position: relative;

@@ -6,7 +6,7 @@
       <!-- eslint-disable vue/no-v-html -->
       <work-brief v-bind="brief"></work-brief>
 
-      <div class="work-video"></div>
+      <work-video :video="video"></work-video>
 
       <work-info :info="info01"></work-info>
 
@@ -44,6 +44,10 @@ export default {
         id: '05',
         project: 'S Awards',
         link: 'sawards',
+      },
+      video: {
+        id: '639570767',
+        ratio: '16-9',
       },
       brief: {
         title: 'PANGU',
@@ -86,7 +90,7 @@ export default {
     this.imgObserver = new IntersectionObserver(this.loadImg, {
       root: null,
       threshold: 0,
-      rootMargin: '-60px',
+      rootMargin: '-20px',
     });
   },
   mounted() {},
@@ -125,13 +129,6 @@ export default {
     width: 98%;
     height: auto;
     margin: 0 auto;
-
-    .work-video {
-      position: relative;
-      width: 100%;
-      height: 300px;
-      background-color: $grey-d;
-    }
 
     .gallery {
       position: relative;
