@@ -33,7 +33,7 @@ export default {
     this.setMesh();
     this.setMouseEffects();
     this.render();
-    this.setMeshOpacity();
+    this.meshFadeIn();
   },
   destroyed() {
     this.clear();
@@ -230,8 +230,7 @@ export default {
       requestAnimationFrame(this.render);
     },
 
-    setMeshOpacity() {
-      console.log('opacity set');
+    meshFadeIn() {
       this.tl = gsap.timeline();
       this.tl
         .to(this.material.uniforms.uOpacity, 1, {
@@ -241,7 +240,7 @@ export default {
         })
         .from(
           this.material.uniforms.uStrengthY,
-          2.4,
+          2,
           {
             value: 0.6,
             ease: 'power4.out',
@@ -249,6 +248,8 @@ export default {
           '<'
         );
     },
+
+    meshFadeOut() {},
 
     clear() {
       window.removeEventListener('resize', this.windowResize);

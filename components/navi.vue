@@ -1,14 +1,14 @@
 <template>
   <div class="Navi">
     <h3 class="navi-name">
-      <NuxtLink to="/">GUANGXI CAI</NuxtLink>
+      <div class="char" @click="goHome"><span>GUANGXI CAI</span></div>
     </h3>
     <div class="navi-top">
       <h3 class="navi-works">
-        <NuxtLink to="/">Works</NuxtLink>
+        <NuxtLink class="char" to="/"><span>Works</span></NuxtLink>
       </h3>
       <h3 class="navi-about">
-        <NuxtLink to="/about">About</NuxtLink>
+        <NuxtLink class="char" to="/about"><span>About</span></NuxtLink>
       </h3>
     </div>
     <div ref="naviHomeCirc" class="navi-home hide" @click="goHome"></div>
@@ -16,7 +16,14 @@
 </template>
 
 <script>
+import { gsap } from 'gsap/all';
+
 export default {
+  data() {
+    return {
+      tl: null,
+    };
+  },
   mounted() {
     window.addEventListener('scroll', this.showNaviHome);
   },
@@ -30,6 +37,18 @@ export default {
       if (window.pageYOffset > 200) naviHomeCirc.classList.remove('hide');
       if (window.pageYOffset < 200) naviHomeCirc.classList.add('hide');
     },
+    naviSlideIn() {
+      const yOffset = window.innerWidth / 10 + 50;
+      this.tl = gsap.timeline();
+      this.tl.from('.char span', 0.4, {
+        y: yOffset,
+        ease: 'power4.out',
+        skewY: 10,
+        stagger: {
+          amount: 0.12,
+        },
+      });
+    },
   },
 };
 </script>
@@ -42,23 +61,36 @@ export default {
     opacity: 0;
     pointer-events: none;
   }
+  .char {
+    overflow: hidden;
+    & span {
+      display: inline-block;
+    }
+  }
   .navi-name {
     position: fixed;
     top: 40px;
     left: 1%;
     font-family: $font2;
     color: $white;
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
   .navi-top {
     position: fixed;
     top: 40px;
     right: 1%;
+    overflow: hidden;
 
     .navi-works,
     .navi-about {
       color: $text;
       font-family: $font2;
       display: inline-block;
+      line-height: 24px;
     }
     .navi-works {
       margin-right: 30px;
@@ -107,9 +139,6 @@ export default {
     .navi-top {
       right: 2.5%;
     }
-    // .navi-home {
-    //   right: 2.5%;
-    // }
   }
 }
 </style>

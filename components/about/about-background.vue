@@ -4,6 +4,7 @@
 
 <script>
 import * as THREE from 'three';
+import { gsap } from 'gsap/all';
 
 export default {
   data() {
@@ -20,6 +21,7 @@ export default {
         w: 0,
         h: 0,
       },
+      tl: null,
     };
   },
   mounted() {
@@ -31,6 +33,7 @@ export default {
     this.setMesh();
     this.setMouseEffects();
     this.render();
+    this.meshFadeIn();
   },
   destroyed() {
     this.clear();
@@ -65,15 +68,17 @@ export default {
         uniforms: {
           time: { value: 0 },
           uColorMult: { value: 1 },
+          uOpacity: { value: 0 },
+          uNoiseAmp: { value: 0.05 },
           tex: {
             value: new THREE.TextureLoader().load('/me.png'),
           },
         },
         vertexShader: `
 					uniform float time;
+					uniform float uNoiseAmp;
 					varying vec2 vUv;
 					varying float vWave;
-          varying float vPosZ;
 
 					//	Simplex 3D Noise
           //	by Ian McEwan, Ashima Arts
@@ -154,37 +159,40 @@ export default {
 						vec3 pos = position;
 						float noiseFreqX = 1.8;
 						float noiseFreqY = 0.2;
-						float noiseAmp = 0.05;
 						vec3 noisePos = vec3(pos.x * noiseFreqX + time, pos.y * noiseFreqY + time, pos.z);
-						pos.z += snoise(noisePos) * noiseAmp;
+						pos.z += snoise(noisePos) * uNoiseAmp;
 						vWave = pos.z;
 
 						vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
 						gl_Position = projectionMatrix * mvPosition;
 
 						vUv = uv;
-            vPosZ = pos.z;
 					}
 				`,
         fragmentShader: `
           uniform float time;
           uniform float uColorMult;
+          uniform float uOpacity;
           uniform sampler2D tex;
           varying vec2 vUv;
           varying float vWave;
-          varying float vPosZ;
 
 					void main() {
 						float wave = vWave * 0.1;
 						float r = texture2D(tex, vUv + wave).r;
 						float g = texture2D(tex, vUv).g;
 						float b = texture2D(tex, vUv).b;
+            float a = texture2D(tex, vUv).a;
 						vec3 tex = vec3(r, g, b);
             tex *= vWave * 3.0 + 0.5;
             tex *= uColorMult;
-						gl_FragColor = vec4(tex, 1.0);
+
+            a *= uOpacity;
+
+						gl_FragColor = vec4(tex, a);
 					}
 				`,
+        transparent: true,
       });
       this.mesh = new THREE.Mesh(this.geometry, this.material);
       this.mesh.matrixAutoUpdate = false;
@@ -224,6 +232,25 @@ export default {
       this.camera.position.z = 1;
     },
 
+    meshFadeIn() {
+      this.tl = gsap.timeline();
+      this.tl
+        .to(this.material.uniforms.uOpacity, 1, {
+          value: 1,
+          delay: 0.2,
+          ease: 'power4.out',
+        })
+        .from(
+          this.material.uniforms.uNoiseAmp,
+          2,
+          {
+            value: 1.2,
+            ease: 'power4.out',
+          },
+          '<'
+        );
+    },
+
     render() {
       this.material.uniforms.time.value += 0.005;
 
@@ -242,6 +269,8 @@ export default {
       this.renderer.dispose();
       this.renderer.domElement = null;
       this.renderer = null;
+      this.tl.kill();
+      this.tl = null;
     },
   },
 };

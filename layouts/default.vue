@@ -3,7 +3,7 @@
     <main ref="main" :class="{ bgDark: isDarkMood }">
       <Nuxt />
     </main>
-    <navi></navi>
+    <navi v-on="naviSlideIn"></navi>
   </div>
 </template>
 
@@ -13,6 +13,9 @@ export default {
     isDarkMood() {
       return this.$store.state.darkMood;
     },
+  },
+  mounted() {
+    this.$emit('naviSlideIn');
   },
   updated() {
     if (this.isDarkMood) {
